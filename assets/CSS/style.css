@@ -1,0 +1,15 @@
+.jumbotron {
+    background-image: url;
+    width: 600px;
+
+}
+
+.container {
+    position: relative;
+    text-align: center;
+}
+
+.jumbotron-text {
+    position:absolute;
+    z-index: 999;
+}
