@@ -1,5 +1,5 @@
 .jumbotron {
-    background-image: url(../Images/jumbotron.jpg);
+    background-image: url(../Images/natl-park.jpg);
     width:40em;
     height: 100em;
     background-size: cover;
@@ -23,7 +23,7 @@
 h1 {
     font-family: 'Playfair Display', serif;
     font-weight:lighter;
-    color: white;
+    color: #62961e;
     font-size: 50px;
 }
 
@@ -38,6 +38,19 @@ h2 {
 
 h3 {
     font-size: 25px;;
+}
+
+.api-sect {
+    padding: 20px;
+}
+
+label {
+    padding: 10px;
+}
+
+button {
+    margin: 10px;
+   
 }
 
 footer {
