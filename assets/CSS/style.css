@@ -22,22 +22,39 @@
 }
 
 h1 {
+    font-family:'Vollkorn', serif;
+    font-weight:lighter;
+    color: #62961e;
+    letter-spacing: 2px;
+    text-align: justify;
+}
+
+span {
     font-family: 'Playfair Display', serif;
     font-weight:lighter;
     color: #62961e;
     font-size: 50px;
+    text-align: justify;
 }
 
-h2, h3 {
+#confucius {
+    font-family: 'Playfair Display', serif;
+    font-weight:lighter;
+    color: #62961e;
+    font-size: 30px;
+    padding-bottom:15px;
+}
+
+h3, h4 {
     font-family: 'Vollkorn', serif;
 }
 
-.jumbotron-text h2{
+.jumbotron-text h3{
     text-align: center;
     font-size: 25px;
 }
 
-h3 {
+h4 {
     font-size: 25px;;
 }
 
@@ -76,7 +93,7 @@ button {
     align-items: center;
 }
 
-.park-info h2 {
+.park-info h3 {
     font-size: 25px;
 }
 
@@ -88,7 +105,7 @@ button {
 
 }
 
-.placeholder-sect h2{
+.placeholder-sect h3{
     font-size: 25px;
     
 }
