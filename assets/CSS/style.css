@@ -1,61 +1,95 @@
-.jumbotron {
-    background-image: url(../Images/natl-park.jpg);
-    width:40em;
-    height: 100em;
-    background-size: cover;
-    position: relative;
+*{
+    margin: 0px;
 }
 
-.jumbotron-text {
-    padding: 2em;
-}
-
-.container {
-    position: relative;
-    text-align: center;
-}
-
-.jumbotron-text {
-    position:absolute;
-    z-index: 999;
-}
-
+/* tags */
 h1 {
-    font-family: 'Playfair Display', serif;
+    font-family:'Vollkorn', serif;
     font-weight:lighter;
     color: #62961e;
-    font-size: 50px;
+    letter-spacing: 2px;
+    text-align: justify;
+    font-size: 60px;
 }
 
-h2, h3 {
-    font-family: 'Vollkorn', serif;
+span {
+    /* font-family: 'Playfair Display', serif; */
+    font-weight:lighter;
+    color: #375511;
+    font-size: 60px;
+    text-align: justify;
 }
 
-h2 {
-    font-size: 30px;
-    text-align: center;
-}
-
-h3 {
+h4 {
     font-size: 25px;;
 }
 
-.api-sect {
-    padding: 20px;
-}
-
-label {
-    padding: 10px;
-}
 
 button {
     margin: 10px;
    
 }
 
-footer {
+p  {
     text-align: center;
+    line-height: 1.8;
+
+}
+
+h3, h4 {
+    font-family: 'Vollkorn', serif;
+}
+
+footer {
+    /* text-align: center;
     position: absolute;
     margin: 0 auto;
-    width: 100%;
+    width: 100%; */
+}
+
+/* tags end */
+
+.jumbotron {
+    background-image: url(../Images/Yosemite.jpg);
+    height: 100vh;
+    position:fixed;
+    background-size: 100% auto;
+    background-position: center center;
+}
+
+.jumbotron-text {
+    position:absolute;
+    z-index: 999;
+    padding: 2em;
+    
+}
+
+.where-to {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100px;
+    height: 100px;
+    color: white;
+    text-align: center;
+
+}
+
+#confucius {
+    font-family: 'Playfair Display', serif;
+    font-weight:lighter;
+    color: #62961e;
+    font-size: 30px;
+    padding-bottom:15px;
+}
+
+.jumbotron-text h3{
+    text-align: center;
+    font-size: 25px;
+}
+
+.parks {
+    background-color: white;
 }

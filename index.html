@@ -10,44 +10,83 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital@1&family=Vollkorn&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/CSS/style.css">
-    <title>Learn and Travel</title>
+    <title>For(est)cast</title>
 </head>
 
 <body>
-    <main class="row">
-            <div class="jumbotron col s4">
-                <div class="jumbotron-text">
-                    <h1>Wherever you go, go with all your heart - Confucius</h1>
-                    <h2>Where to?</h2>
-
-        <input type="text" placeholder="Enter state">
-        <button class="btn waves-effect waves-light" type="submit" name="action" id="submit-button">Submit
-            <i class="material-icons right"></i>
-        </button> 
-        <div class="api-sect">
-            <!-- flight API -->
+    <main class="columns">
+        <!-- Yosemite Jumbotron -->
+        <aside class="jumbotron column is-12 level">
+            <div class="jumbotron-text section">
+                <header class="level-item">
+                    <h1>Fore<span>st</span>cast</h1>
+                </header>
+                <h2 id="confucius">Wherever you go, go with all your heart - Confucius</h2>
+            </div>
+            <div class="rows">
+               
+                <div class="where-to"> 
+                    <h3 class ="l">Where to?</h3>
+                    <select class="dropdown is-rounded is-centered">
+                        <option>Country</option>
+                        <option>Country Option</option>
+                    </select>
+                </div>
         </div>
-        </div>
-        </div>
-        <section class=>
-            <div class="col s3">
-
+        </aside>
+        <!-- Photo of Park -->
+        <section class="column">
+            <div class="hero is-primary">
+                <div class="hero-body">
+                    <p class="subtitle">
+                        Park Photo
+                    </p>
+                </div>
+            </div>
+            <!-- Parks -->
+            <div class="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <!-- Weather -->
+            <div class="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
+            </div>
+            <!-- Covid -->
+            <div class="">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
         </section>
     </main>
+    <!-- Footer -->
     <footer>
-        <h3>Created in Collaborations With</h3>
-        <a href="#">Christian </a><a href="#">Jasmin </a><a href="#">Rome </a><a href="#">Sarah </a><a href="#">Shahen
-        </a>
-        <p><a href="#"></a>
-        <p>Photo by <a
-                href="https://unsplash.com/@thejoltjoker?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Johannes
-                Andersson</a> on <a
-                href="https://unsplash.com/s/photos/national-parks?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-
-        </p>
+        <h4>Created in Collaborations With</h3>
+            <a href="#">Christian </a><a href="#">Jasmin </a><a href="#">Rome </a><a href="#">Sarah </a><a
+                href="#">Shahen
+            </a>
+            <p><a href="#"></a>
+                <!-- Yosemite Photo Credits -->
+            <p>Photo by
+                <a
+                    href="https://unsplash.com/@thejoltjoker?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Johannes
+                    Andersson
+                </a> on
+                <a
+                    href="https://unsplash.com/s/photos/national-parks?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+            </p>
     </footer>
 
     <script src="./assets/JavaScript/script.js"></script>
