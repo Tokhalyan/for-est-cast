@@ -2,56 +2,22 @@
     margin: 0px;
 }
 
-.jumbotron {
-    background-image: url(../Images/natl-park.jpg);
-    width:40em;
-    height: 100em;
-    background-size: cover;
-    position: relative;
-}
-
-.container {
-    position: relative;
-    text-align: center;
-}
-
-.jumbotron-text {
-    position:absolute;
-    z-index: 999;
-    padding: 2em;
-}
-
+/* tags */
 h1 {
     font-family:'Vollkorn', serif;
     font-weight:lighter;
     color: #62961e;
     letter-spacing: 2px;
     text-align: justify;
+    font-size: 60px;
 }
 
 span {
-    font-family: 'Playfair Display', serif;
+    /* font-family: 'Playfair Display', serif; */
     font-weight:lighter;
-    color: #62961e;
-    font-size: 50px;
+    color: #375511;
+    font-size: 60px;
     text-align: justify;
-}
-
-#confucius {
-    font-family: 'Playfair Display', serif;
-    font-weight:lighter;
-    color: #62961e;
-    font-size: 30px;
-    padding-bottom:15px;
-}
-
-h3, h4 {
-    font-family: 'Vollkorn', serif;
-}
-
-.jumbotron-text h3{
-    text-align: center;
-    font-size: 25px;
 }
 
 h4 {
@@ -64,71 +30,55 @@ button {
    
 }
 
-
-.parks p {
-    border-style: solid;
-    border-color: salmon;
-    border-radius: 5%;
-    width: 40em;
-    height: 20em;
-    position: relative;
-    padding: 2%;
-}
-
-.weather p {
-    border-style: solid;
-    border-color: salmon;
-    border-radius: 5%;
-    width: 40em;
-    height: 20em;
-    position: relative;
-    padding: 2%;
-}
-
-
-.park-info  {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-}
-
-.park-info h3 {
-    font-size: 25px;
-}
-
-.placeholder-sect {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center;
-
-}
-
-.placeholder-sect h3{
-    font-size: 25px;
-    
-}
-
-.placeholder-div {
-    border-style: solid;
-    border-color: salmon;
-    border-radius: 5%;
-    width: 40em;
-    height: 20em;
-    position: relative;
-    padding: 2%;
-}
-
-
 p  {
     text-align: center;
     line-height: 1.8;
 
 }
+
+h3, h4 {
+    font-family: 'Vollkorn', serif;
+}
+
+
+
 footer {
     text-align: center;
     position: absolute;
     margin: 0 auto;
     width: 100%;
 }
+
+/* tags end */
+
+.jumbotron {
+    background-image: url(../Images/natl-park.jpg);
+    width:40em;
+    height: 100em;
+    background-size: cover;
+    position: relative;
+}
+
+.jumbotron-text {
+    position:absolute;
+    z-index: 999;
+    padding: 2em;
+}
+
+#confucius {
+    font-family: 'Playfair Display', serif;
+    font-weight:lighter;
+    color: #62961e;
+    font-size: 30px;
+    padding-bottom:15px;
+}
+
+.jumbotron-text h3{
+    text-align: center;
+    font-size: 25px;
+}
+
+.parks {
+    background-color: white;
+}
+
