@@ -22,15 +22,17 @@
                 <div>
                     <h1>Fore<span>st</span>cast</h1>
                 </div>
+                
                 <div>
                     <h2>
                         Wherever you go, go with all your heart. Confucius
                     </h2>
                 </div>
+                
                 <div>
                         <label for="states">Where to?</label>
                         <select name="states" id="states">
-                            <option value="#" selected disabled>US States</option>
+                            <option value="state" selected disabled>US States</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
                             <option value="AZ">Arizona</option>
@@ -82,6 +84,7 @@
                             <option value="WI">Wisconsin</option>
                             <option value="WY">Wyoming</option>
                         </select>
+                        
                         <div class="buttons">
                             <button id="submitButton" onclick="openRightPanel()">Search</button>
                             <button>Search History</button>
@@ -90,6 +93,7 @@
             </div>
         </div>
     </div>
+    
     <!-- Here we will have all the content -->
     <div class="right-panel" id="main-content">
         <button onclick="closeRightPanel()">CLOSE</button>
