@@ -1,19 +1,14 @@
 // Query selectors
 const submitButtonEl = document.querySelector("#submitButton"); 
+const leftSidebarEl = document.querySelector("#left-sidebar");
+const mainContentEl = document.querySelector("#main-content");
+const statesEl = document.querySelector("#states");
+const rightPanelEl = document.querySelector(".right-panel");
 
-function getStateName(event) {
-    // prevent page from refreshing when we push submit button
-    event.preventDefault();
-
-    // get value from input element
-    let stateName = cityInputEl.value.trim();
-
-    if (stateName) {
-        console.log(stateName)
-        document.querySelector("#state").textContent = cityName.toUpperCase();
-    } else {
-
-    }
+function openRightPanel() {
+    rightPanelEl.classList.add("show");
 }
 
-submitButtonEl.addEventListener("submit", getStateName);
+function closeRightPanel() {
+    rightPanelEl.classList.remove("show");
+}
