@@ -70,11 +70,18 @@ h2 {
 } 
 
 /* WEATHER STYLES*/
+
 .card {
-    border: rgb(190, 230, 190) solid 1px;
-    background-image: url('../images/card-bg.jpg');
+    border-radius: 10;
     text-align: center;
     color: white;
+    font-weight: bold;
+    margin-left: 12px;
+}
+
+.card-bg {
+    background-image: url('../images/card-bg.jpg');
+    opacity: 0.5;
 }
 
 #current-city {
@@ -86,6 +93,12 @@ font-size: 20px;
     font-size: 12px;
 }
 
+#master-container {
+    background-image: url('../images/master-bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 100vw;
+    padding-bottom: 15px;
+}
 
 /* scrollbar */
 

@@ -17,10 +17,8 @@ function closeRightPanel() {
 }
 
 
-
-
+// WEATHER FUNCTION STARTS HERE 
 $('#submitButton').on('click', function() {
-  
     var city = $("#states :selected").text();
     var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
     var currentWeather = 'http://api.openweathermap.org/data/2.5/weather?q='+ city +'&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
@@ -28,7 +26,6 @@ $('#submitButton').on('click', function() {
     getCurrentWeather(currentWeather)
   });
   
-
   function getCurrentWeather(currentWeather) { 
     fetch(currentWeather)
       .then(function (response) {
@@ -36,30 +33,18 @@ $('#submitButton').on('click', function() {
       })
       .then(function (data) {  
 
-
-        console.log(data);
+      console.log(data);
       console.log(data.name);
       console.log(Math.floor(data.main.temp));
       console.log(data.weather[0].description);
 
       // CURRENT WEATHER 
-      $("#current-city").html(data.name);
+      $("#current-city").html(data.name.toUpperCase());
       $("#icon").html("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
       $("#current-temp").html(data.main.temp + " °F");
-      $("#current-description").html(data.weather[0].description);
+      $("#current-description").html(data.weather[0].description.toUpperCase());
       });
     }
-
-
-//   $('.fav').on('change', function() {
-//     var city = $(this).text();
-//     var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q='+ city +'&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
-//     console.log(data);
-
-//     searchWeather(requestUrl);
-
-//   });
-  
   
   function searchWeather(requestUrl) {
   fetch(requestUrl)
@@ -77,42 +62,38 @@ $('#submitButton').on('click', function() {
     let dayFour = moment().add(4, 'days').format("dddd");
     let dayFive = moment().add(5, 'days').format("dddd");
 
-
-
-          // NEXT DAY WEATHER DAY 1
+    // NEXT DAY WEATHER DAY 1
     $("#day-one").html(dayOne.toUpperCase());
     $("#icon1").html("<img src='http://openweathermap.org/img/w/" + data.list[8].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
     $("#current-temp1").html(data.list[8].main.temp + " °F");
-    $("#current-description1").html(data.list[8].weather[0].description);
+    $("#current-description1").html(data.list[8].weather[0].description.toUpperCase());
 
-          // NEXT DAY WEATHER DAY 2
+    // NEXT DAY WEATHER DAY 2
     $("#day-two").html(dayTwo.toUpperCase());
     $("#icon2").html("<img src='http://openweathermap.org/img/w/" + data.list[16].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
     $("#current-temp2").html(data.list[16].main.temp + " °F");
-    $("#current-description2").html(data.list[16].weather[0].description);
+    $("#current-description2").html(data.list[16].weather[0].description.toUpperCase());
 
-        // NEXT DAY WEATHER DAY 3
+    // NEXT DAY WEATHER DAY 3
     $("#day-three").html(dayThree.toUpperCase());
     $("#icon3").html("<img src='http://openweathermap.org/img/w/" + data.list[24].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
     $("#current-temp3").html(data.list[24].main.temp + " °F");
-    $("#current-description3").html(data.list[24].weather[0].description);
+    $("#current-description3").html(data.list[24].weather[0].description.toUpperCase());
 
-        // NEXT DAY WEATHER DAY 4
+    // NEXT DAY WEATHER DAY 4
     $("#day-four").html(dayFour.toUpperCase());
     $("#icon4").html("<img src='http://openweathermap.org/img/w/" + data.list[32].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
     $("#current-temp4").html(data.list[32].main.temp + " °F");
-    $("#current-description4").html(data.list[32].weather[0].description);
+    $("#current-description4").html(data.list[32].weather[0].description.toUpperCase());
 
-        // NEXT DAY WEATHER DAY 5
+    // NEXT DAY WEATHER DAY 5
     $("#day-five").html(dayFive.toUpperCase());
     $("#icon5").html("<img src='http://openweathermap.org/img/w/" + data.list[39].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
     $("#current-temp5").html(data.list[39].main.temp + " °F");
-    $("#current-description5").html(data.list[39].weather[0].description);
-        
-    
-
+    $("#current-description5").html(data.list[39].weather[0].description.toUpperCase());
     });
     }  
+
 
 // this function is receiving the chosen option's value. Example - ca for california
 function getStateName(event) {
