@@ -75,7 +75,7 @@ $('#submitButton').on('click', function() {
     let dayTwo = moment().add(2, 'days').format("dddd");
     let dayThree = moment().add(3, 'days').format("dddd");
     let dayFour = moment().add(4, 'days').format("dddd");
-    let dayFive = moment().add(5git , 'days').format("dddd");
+    let dayFive = moment().add(5 , 'days').format("dddd");
 
 
 
@@ -114,3 +114,19 @@ $('#submitButton').on('click', function() {
     });
     }  
 
+// this function is receiving the chosen option's value. Example - ca for california
+function getStateName(event) {
+    let value = statesEl.options[statesEl.selectedIndex].value;
+    if(value != "state") {
+        // to get state's name and pass it as a parameter for your function please call your function HERE and give it parameter (value) 
+
+    } else {
+        // need modal error window for this message 
+        console.log("Please choose the state");
+        closeRightPanel()
+    }
+    
+    // Call your function with (value) parameter if you need the state name for your fetch request
+}
+
+submitButtonEl.addEventListener("click", getStateName);
