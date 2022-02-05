@@ -3,18 +3,6 @@
     padding: 0;
 }
 
-h1, span {
-    font-family: 'Source Serif 4', sans-serif;
-    font-size: 70px;
-    font-weight: 800;
-}
-
-h2 {
-    font-family: 'Merriweather', serif;
-    font-size: 30px;
-    font-weight: lighter;
-}
-
 #parent-div {
     background-image: url(../Images/Yosemite.jpg);
     background-repeat: no-repeat;
@@ -39,6 +27,69 @@ h2 {
 .right-panel.show {
     transform: translateX(0);
 }
+
+h1 {
+    font-family: 'Vollkorn', serif;
+    font-size: 80px;
+    color:rgb(53, 87, 20);
+    height:100px;
+}
+
+span {
+    color:rgb(84, 138, 30);
+}
+
+h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+}
+
+.where-to {
+    color: white;
+    font-family: 'Vollkorn', serif;
+    display: block;
+    font-size: 30px;
+    text-indent: 15%;
+    height: 30px;
+}
+
+.state-select {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+}
+
+.select {
+    margin: 10%;
+}
+
+.delete {
+    margin: 10px;
+} 
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }
+
+  /* scrollbar end*/
+   
+
 
 /* Media queries are needed for the proper left sidebar view */
 /* width 70vw -> 100vw right panel */
