@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 #parent-div {
@@ -84,6 +85,11 @@ h2 {
     opacity: 0.5;
 }
 
+.parkCard {
+    text-align: center;
+    color: black;
+}
+
 #current-city {
 text-align: center;
 font-size: 20px;
@@ -98,6 +104,12 @@ font-size: 20px;
     background-repeat: no-repeat;
     background-size: 100vw;
     padding-bottom: 15px;
+}
+
+
+.parkCard img {
+    width: 200px;
+    width: 200px;
 }
 
 /* scrollbar */

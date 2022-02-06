@@ -98,9 +98,18 @@
     <!-- Here we will have all the content -->
     <div class="right-panel" id="main-content">
         <button class="delete is-large" onclick="closeRightPanel()"></button>
-        <div>
-            <!-- PARK INFORMATION GOES HERE -->
-        </div>
+          
+        <!-- PARK INFORMATION GOES HERE -->
+                <div id="ParkCards">
+                      <div class="parkCard">
+                          <p>Title</p>
+                          <img src="https://icon-library.com/images/twitter-small-icon/twitter-small-icon-17.jpg" alt="">
+                          <p>Description</p>
+                          <p class="category">Category</p>
+                          <p class="price">Price</p>
+                      </div> 
+                </div>
+                <br><br>
 
         <!-- WEATHER INFORMATION GOES HERE -->
         <div id="master-container">
@@ -142,14 +151,16 @@
                 <p id="current-description4"></p>
             </div>
             <br>
-            <div class="column is-2 card card-bg"> <!-- NEXT DAY WEATHER - DAY 5 -->
-                <p id="day-five"></p>
+            <!-- <div class="column is-2 card card-bg"> NEXT DAY WEATHER - DAY 5 -->
+                <!-- <p id="day-five"></p>
                 <div id="icon5"></div>
                 <p id="current-temp5"></p>
                 <p id="current-description5"></p>
-            </div>
+                </div> -->
         </div>
         <div>
+
+            
         </div>
             <!-- COVID INFORMATION GOES HERE -->
         </div>
@@ -161,6 +172,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script src="./assets/JavaScript/script.js"></script>
+    <!-- <script src="./assets/JavaScript/park.js"></script> -->
+
 </body>
 
 </html>
