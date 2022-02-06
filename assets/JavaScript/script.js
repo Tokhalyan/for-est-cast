@@ -58,8 +58,8 @@ $('#submitButton').on('click', function() {
         console.log(data.data[0].fullName);
         let data1 = "";
         data.data.map((values) => {
-          data1 += `  <div class="parkCard">
-                          <p>${values.fullName}</p>
+          data1 += `  <div class="parkCard slide">
+                          <p id="park-name-header">${values.fullName}</p>
                           <img src=${values.images[0].url} alt="">
                           <p>Description</p>
                           <p class="category">Category</p>

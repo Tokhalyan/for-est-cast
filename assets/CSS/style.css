@@ -16,7 +16,7 @@
 .right-panel {
     height: 100vh;
     width: 65vw;
-    position: fixed;
+    position:absolute;
     right: 0;
     top: 0;
     background-color: white;
@@ -106,11 +106,28 @@ font-size: 20px;
     padding-bottom: 15px;
 }
 
+#ParkCards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    
+}
+
+.parkCard {
+    width: 50%;
+    box-shadow: 0 0 4px 3px rgb(193, 193, 212);
+}
 
 .parkCard img {
-    width: 200px;
-    width: 200px;
+    width: 400px;
+    width: 400px;
 }
+
+#park-name-header {
+    font-size: 20px;
+    margin: 10px;
+}
+
 
 /* scrollbar */
 
