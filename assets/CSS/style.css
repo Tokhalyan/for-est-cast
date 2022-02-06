@@ -49,9 +49,9 @@ h2 {
     font-family: 'Vollkorn', serif;
     display: block;
     font-size: 30px;
-    text-indent: 15%;
-    height: 30px;
-}
+     text-indent: 15%; 
+     height: 30px; 
+} 
 
 .state-select {
     position: absolute;
@@ -59,15 +59,42 @@ h2 {
     top: 50%;
     transform: translate(-50%, -50%);
     padding: 10px;
+    
 }
 
-.select {
+.state-selected {
+    display:block;
+    float: left;
+    padding-top: 5%;
+}
+
+.where-to-selected {
+    color: white;
+    font-family: 'Vollkorn', serif;
+    display: block;
+    font-size: 30px;
+    height: 30px;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    margin-bottom: 5%;
+}
+
+.select-selected {
+    margin-top: 6%;
+    margin-bottom: 6%;
+}
+
+.selection {
     margin: 10%;
 }
 
 .delete {
     margin: 10px;
 } 
+
+#future-clicked {
+    display: none;
+}
 
 /* scrollbar */
 
