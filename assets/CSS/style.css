@@ -22,6 +22,7 @@
     transform: translateX(100%);
     transition: 0.3s;
     z-index: 999;
+    overflow-y: scroll;
 }
 
 .right-panel.show {
@@ -92,10 +93,6 @@ h2 {
     margin: 10px;
 } 
 
-#future-clicked {
-    display: none;
-}
-
 /* scrollbar */
 
 ::-webkit-scrollbar {
@@ -115,9 +112,10 @@ h2 {
   }
 
   /* scrollbar end*/
+
+  @media screen and (max-width: 1550px) {
+    .right-panel {
+        width: 100%;
+    }
+  }
    
-
-
-/* Media queries are needed for the proper left sidebar view */
-/* width 70vw -> 100vw right panel */
-/* We can make 100vw for the right panel (instead of 65vw) for the small screen sizes, there's a button to close and return back to the search panel */
