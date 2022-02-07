@@ -21,7 +21,7 @@ $('#submitButton').on('click', function() {
     var cityPark = $("#states :selected").val();
     var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
     var currentWeather = 'http://api.openweathermap.org/data/2.5/weather?q='+ city +'&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
-    var currentPark =  'https://developer.nps.gov/api/v1/parks?stateCode=' + cityPark + '&stateCode=&api_key=aasGgYTFCP5RhABVLXGcydD4VYevDcBYE0c6Qnh2';
+    var currentPark =  'https://developer.nps.gov/api/v1/parks?stateCode=' + cityPark + '&limit=12&stateCode=&api_key=aasGgYTFCP5RhABVLXGcydD4VYevDcBYE0c6Qnh2';
     searchWeather(requestUrl);
     getCurrentWeather(currentWeather)
     getCurrentPark(currentPark);
@@ -58,18 +58,17 @@ $('#submitButton').on('click', function() {
         console.log(data.data[0].fullName);
         let data1 = "";
         data.data.map((values) => {
-          data1 += `  <div class="parkCard slide">
+          data1 += `      <div class="parkCard">
                           <p id="park-name-header">${values.fullName}</p>
-                          <img src=${values.images[0].url} alt="">
-                          <p>Description</p>
-                          <p class="category">Category</p>
-                          <p class="price">Price</p>
+                          <a href="park.html" target="_blank">
+                          <img src=${values.images[0].url} alt=""></a>
                       </div> `
         })
           document.getElementById("ParkCards").innerHTML = data1;
-
         });
       }
+
+
     
 
   function searchWeather(requestUrl) {

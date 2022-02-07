@@ -11,6 +11,7 @@
     width: 100%;
     background-size: cover;
     background-position: center center;
+    float: left;
 }
 
 .right-panel {
@@ -73,7 +74,7 @@ h2 {
 /* WEATHER STYLES*/
 
 .card {
-    border-radius: 10;
+    border-radius: 15px;
     text-align: center;
     color: white;
     font-weight: bold;
@@ -95,6 +96,11 @@ text-align: center;
 font-size: 20px;
 }
 
+#park-city {
+    text-align: center;
+    font-size: 20px;
+    }
+
 #main-container p {
     font-size: 12px;
 }
@@ -104,28 +110,51 @@ font-size: 20px;
     background-repeat: no-repeat;
     background-size: 100vw;
     padding-bottom: 15px;
+    border-radius: 15px;
 }
 
 #ParkCards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    
+    border: red;
+    margin-left: 35px;
 }
 
 .parkCard {
-    width: 50%;
-    box-shadow: 0 0 4px 3px rgb(193, 193, 212);
+    position: relative;
+    text-align: center;
+    color: white;
+    margin: 5px;
+    width: 30%;
+    border: rgba(9, 85, 25, 0.46) solid 2px;
+    border-radius: 15px;
+    /* box-shadow: 0 0 4px 3px rgb(193, 193, 212); */
 }
 
 .parkCard img {
-    width: 400px;
-    width: 400px;
+    border-radius: 15px;
+    height: 200px;
+    width: 70%;
+    margin: 5px;   
+    cursor: grab;
+}
+
+.parkCard img:hover {
+    border: rgba(17, 106, 20, 0.666) solid 2px;
 }
 
 #park-name-header {
-    font-size: 20px;
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+    font-size: 13px;
     margin: 10px;
+}
+
+#park-name-header {
+    background-color: rgba(17, 106, 20, 0.666);
+    padding: 0px 5px 0px 5px;
+    border-radius: 10px;
 }
 
 
@@ -147,6 +176,18 @@ font-size: 20px;
     background: #555; 
   }
 
+
+  #park-info {
+      width: 50vw;
+      height: 70vh;
+      border: rgb(255, 255, 255) solid 3px;
+      position: absolute;
+      float: right;
+      background-color: rgba(230, 236, 236, 0.542);
+      margin-left: 500px;
+      margin-top: 100px;
+      border-radius: 15px;
+      }
   /* scrollbar end*/
    
 
