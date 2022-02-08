@@ -220,7 +220,15 @@ height: 90vh;
           height: 50%;
       }
 
-
+      #ParkCards2 {
+          text-align: center;
+        width: 80%;
+        height: 600px;
+        border: red solid 2px;
+    } 
+        .noShow {
+        display: none;
+    }
 
   /* scrollbar end*/
 
@@ -239,6 +247,7 @@ height: 90vh;
         width: 100%;
     }
   }
+
 
 
 /* Media queries are needed for the proper left sidebar view */

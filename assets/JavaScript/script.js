@@ -70,6 +70,8 @@ function getCurrentWeather(currentWeather) {
         });
 }
 
+
+
 function getCurrentPark(currentPark) { 
     fetch(currentPark)
         .then(function (response) {
@@ -82,21 +84,47 @@ function getCurrentPark(currentPark) {
             let data1 = "";
             data.data.map((values) => {
             data1 += `      <div class="parkCard" onClick="parkInfo(event)">
-                                <p id="park-name-header" class="park-name" data-park-name="${values.fullName}">${values.fullName}</p>
+                                <p id="park-name-header" class="park-name" data-park-name="${values.fullName}" data-park-description="${values.description}" data-park-image="${values.images[0].url}">${values.fullName}</p> <br><br>
+                                <p class="park-description noShow" data-park-description="${values.description}">${values.description}</p>
+
                                     <img src=${values.images[0].url}>
-                            </div> `   
-            })
-            document.getElementById("ParkCards").innerHTML = data1;
+                            </div> `  
+            
+            
+                        document.getElementById("ParkCards").innerHTML = data1;
+                        
+                        })
+
         });
 }
+
 
 function parkInfo(event) {
     // console.log(event)
     if(event.target.matches(".park-name")) {
+        console.log('event', event);
         console.log(event.target.getAttribute('data-park-name'));
-    }
+        console.log(event.target.getAttribute('data-park-description'));
+        console.log(event.target.getAttribute('data-park-image'));
+        
 
+        var parkName = (event.target.getAttribute('data-park-name'));
+        document.getElementById("park-name-header2").innerHTML = parkName;
+
+        var parkDescription = (event.target.getAttribute('data-park-description'));
+        document.getElementById("park-description2").innerHTML = parkDescription;
+
+        var parkImage = (event.target.getAttribute('data-park-image'));
+        document.getElementById("park-image2").src = parkImage;
+
+
+
+    }
 }
+
+
+
+
     
 function searchWeather(requestUrl) {
     fetch(requestUrl)
