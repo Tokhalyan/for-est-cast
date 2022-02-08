@@ -84,20 +84,16 @@ function getCurrentPark(currentPark) {
             let data1 = "";
             data.data.map((values) => {
             data1 += `      <div class="parkCard" onClick="parkInfo(event)">
-                                <p id="park-name-header" class="park-name" data-park-name="${values.fullName}" data-park-description="${values.description}" data-park-image="${values.images[0].url}">${values.fullName}</p> <br><br>
+                                <p id="park-name-header" class="park-name">${values.fullName}</p> <br><br>
                                 <p class="park-description noShow" data-park-description="${values.description}">${values.description}</p>
-
-                                    <img src=${values.images[0].url}>
+                                    <img  class="park-image" data-park-description="${values.description}" data-park-name="${values.fullName}" data-park-image="${values.images[0].url}" src=${values.images[0].url}>
                             </div> `  
-            
             
                         document.getElementById("ParkCards").innerHTML = data1;
                         
                         })
-
         });
 }
-
 
 
 var backBtnEl = document.getElementById("back-btn");
@@ -112,13 +108,9 @@ function backHome() {
 }
 
 
-
-
-
-
 function parkInfo(event) {
     // console.log(event)
-    if(event.target.matches(".park-name")) { 
+    if(event.target.matches(".park-image")) { 
         document.getElementById("ParkCards").classList.add("noShow");
         document.getElementById("ParkCards2").classList.remove("noShow");
         console.log('event', event);
