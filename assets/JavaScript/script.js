@@ -9,7 +9,6 @@ const covidInfoEl = document.querySelector("#covid-info");
 // api key for covid api
 let covidApiKey = "a61d828378ec47f7a19232209993e4e1"
 
-
 function openRightPanel() {
     rightPanelEl.classList.add("show");
 }
