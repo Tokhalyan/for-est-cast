@@ -9,9 +9,9 @@ const covidInfoEl = document.querySelector("#covid-info");
 // api key for covid api
 let covidApiKey = "a61d828378ec47f7a19232209993e4e1"
 
-function openRightPanel() {
-    rightPanelEl.classList.add("show");
-}
+// function openRightPanel() {
+    
+// }
 
 function closeRightPanel() {
     rightPanelEl.classList.remove("show");
@@ -80,21 +80,24 @@ function getCurrentPark(currentPark) {
             console.log(data.data.length);
             console.log(data.data[0].fullName);
             let data1 = "";
-            data.data.map((values) => {
-            data1 += `      <div class="parkCard" onClick="parkInfo(event)">
-                                <p id="park-name-header" class="park-name" data-park-name="${values.fullName}">${values.fullName}</p>
-                                    <img src=${values.images[0].url}>
+            data.data.map((item, index) => {
+                data1 += `  <div class="parkCard" onClick="parkInfo(event)" key="${index}">
+                                <p id="park-name-header" class="park-name" data-park-name="${item.fullName}">${item.fullName}</p>
+                                <img src=${item.images[0].url}>
                             </div> `   
             })
             document.getElementById("ParkCards").innerHTML = data1;
+            rightPanelEl.classList.add("show");
         });
 }
 
 function parkInfo(event) {
+    event.stopPropagation();
+    console.log(event)
     // console.log(event)
-    if(event.target.matches(".park-name")) {
-        console.log(event.target.getAttribute('data-park-name'));
-    }
+    // if(event.target.matches(".park-name")) {
+    //     console.log(event.target.getAttribute('data-park-name'));
+    // }
 
 }
     
