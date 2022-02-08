@@ -84,8 +84,9 @@ function getCurrentPark(currentPark) {
             let data1 = "";
             data.data.map((values) => {
             data1 += `      <div class="parkCard" onClick="parkInfo(event)">
-                                <p id="park-name-header" class="park-name">${values.fullName}</p> <br><br>
+                                <p id="park-name-header" class="park-name" data-park-name="${values.fullName}" >${values.fullName}</p> <br><br>
                                 <p class="park-description noShow" data-park-description="${values.description}">${values.description}</p>
+
                                     <img  class="park-image" data-park-description="${values.description}" data-park-name="${values.fullName}" data-park-image="${values.images[0].url}" src=${values.images[0].url}>
                             </div> `  
             
