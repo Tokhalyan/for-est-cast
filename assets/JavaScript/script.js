@@ -99,9 +99,28 @@ function getCurrentPark(currentPark) {
 }
 
 
+
+var backBtnEl = document.getElementById("back-btn");
+backBtnEl.addEventListener("click", backHome);
+
+function backHome() {
+    
+    document.getElementById("ParkCards").classList.remove("noShow");
+    document.getElementById("ParkCards2").classList.add("noShow");
+
+
+}
+
+
+
+
+
+
 function parkInfo(event) {
     // console.log(event)
-    if(event.target.matches(".park-name")) {
+    if(event.target.matches(".park-name")) { 
+        document.getElementById("ParkCards").classList.add("noShow");
+        document.getElementById("ParkCards2").classList.remove("noShow");
         console.log('event', event);
         console.log(event.target.getAttribute('data-park-name'));
         console.log(event.target.getAttribute('data-park-description'));

@@ -224,10 +224,15 @@ height: 90vh;
           text-align: center;
         width: 80%;
         height: 600px;
-        border: red solid 2px;
+        border: rgb(248, 247, 247) solid 2px;
     } 
         .noShow {
         display: none;
+    }
+
+    #park-image2 {
+        width: 500px;
+        height: 300px;
     }
 
   /* scrollbar end*/
