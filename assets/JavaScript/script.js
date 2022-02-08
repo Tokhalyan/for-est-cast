@@ -38,7 +38,6 @@ function closeRightPanel() {
         document.getElementById("select-state").classList.toggle("selection");
 }
 
-
 // WEATHER FUNCTION STARTS HERE 
 $('#submitButton').on('click', function() {
     var city = $("#states :selected").text();
@@ -49,99 +48,96 @@ $('#submitButton').on('click', function() {
     searchWeather(requestUrl);
     getCurrentWeather(currentWeather)
     getCurrentPark(currentPark);
-  });
-  
-  function getCurrentWeather(currentWeather) { 
+});
+
+function getCurrentWeather(currentWeather) { 
     fetch(currentWeather)
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {  
-
-      console.log(data);
-      console.log(data.name);
-      console.log(Math.floor(data.main.temp));
-      console.log(data.weather[0].description);
-
-      // CURRENT WEATHER 
-      $("#current-city").html(data.name.toUpperCase());
-      $("#icon").html("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
-      $("#current-temp").html(data.main.temp + " °F");
-      $("#current-description").html(data.weather[0].description.toUpperCase());
-      });
-    }
-  
-    function getCurrentPark(currentPark) { 
-      fetch(currentPark)
         .then(function (response) {
-          return response.json();
+            return response.json();
         })
         .then(function (data) {  
-        console.log(data);
-        console.log(data.data.length);
-        console.log(data.data[0].fullName);
-        let data1 = "";
-        data.data.map((values) => {
-          data1 += `      <div class="parkCard" onClick.parkInfo()>
-                          <p id="park-name-header">${values.fullName}</p>
-                          <a href="#">
-                          <img src=${values.images[0].url}></a>
-                      </div> `   
-      
-        })
-        document.getElementById("ParkCards").innerHTML = data1;
+
+            console.log(data);
+            console.log(data.name);
+            console.log(Math.floor(data.main.temp));
+            console.log(data.weather[0].description);
+
+        // CURRENT WEATHER 
+        $("#current-city").html(data.name.toUpperCase());
+        $("#icon").html("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+        $("#current-temp").html(data.main.temp + " °F");
+        $("#current-description").html(data.weather[0].description.toUpperCase());
         });
-      }
+}
 
+function getCurrentPark(currentPark) { 
+    fetch(currentPark)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {  
+            console.log(data);
+            console.log(data.data.length);
+            console.log(data.data[0].fullName);
+            let data1 = "";
+            data.data.map((values) => {
+            data1 += `      <div class="parkCard" onClick="parkInfo(event)">
+                                <p id="park-name-header" class="park-name" data-park-name="${values.fullName}">${values.fullName}</p>
+                                    <img src=${values.images[0].url}>
+                            </div> `   
+            })
+            document.getElementById("ParkCards").innerHTML = data1;
+        });
+}
 
+function parkInfo(event) {
+    // console.log(event)
+    if(event.target.matches(".park-name")) {
+        console.log(event.target.getAttribute('data-park-name'));
+    }
 
-      function parkInfo() {
-        console.log("You Clicked Me");
-
-      }
+}
     
+function searchWeather(requestUrl) {
+    fetch(requestUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {  
+            console.log(data);
+            console.log(data.city.name);
 
-  function searchWeather(requestUrl) {
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (data) {  
-    console.log(data);
-    console.log(data.city.name);
+            // MOMENTS.JS FOR WEATHER DATES/DAYS
+            let dayOne = moment().add(1, 'days').format("dddd");
+            let dayTwo = moment().add(2, 'days').format("dddd");
+            let dayThree = moment().add(3, 'days').format("dddd");
+            let dayFour = moment().add(4, 'days').format("dddd");
 
-    // MOMENTS.JS FOR WEATHER DATES/DAYS
-    let dayOne = moment().add(1, 'days').format("dddd");
-    let dayTwo = moment().add(2, 'days').format("dddd");
-    let dayThree = moment().add(3, 'days').format("dddd");
-    let dayFour = moment().add(4, 'days').format("dddd");
+            // NEXT DAY WEATHER DAY 1
+            $("#day-one").html(dayOne.toUpperCase());
+            $("#icon1").html("<img src='http://openweathermap.org/img/w/" + data.list[8].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#current-temp1").html(data.list[8].main.temp + " °F");
+            $("#current-description1").html(data.list[8].weather[0].description.toUpperCase());
 
-    // NEXT DAY WEATHER DAY 1
-    $("#day-one").html(dayOne.toUpperCase());
-    $("#icon1").html("<img src='http://openweathermap.org/img/w/" + data.list[8].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
-    $("#current-temp1").html(data.list[8].main.temp + " °F");
-    $("#current-description1").html(data.list[8].weather[0].description.toUpperCase());
+            // NEXT DAY WEATHER DAY 2
+            $("#day-two").html(dayTwo.toUpperCase());
+            $("#icon2").html("<img src='http://openweathermap.org/img/w/" + data.list[16].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#current-temp2").html(data.list[16].main.temp + " °F");
+            $("#current-description2").html(data.list[16].weather[0].description.toUpperCase());
 
-    // NEXT DAY WEATHER DAY 2
-    $("#day-two").html(dayTwo.toUpperCase());
-    $("#icon2").html("<img src='http://openweathermap.org/img/w/" + data.list[16].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
-    $("#current-temp2").html(data.list[16].main.temp + " °F");
-    $("#current-description2").html(data.list[16].weather[0].description.toUpperCase());
+            // NEXT DAY WEATHER DAY 3
+            $("#day-three").html(dayThree.toUpperCase());
+            $("#icon3").html("<img src='http://openweathermap.org/img/w/" + data.list[24].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#current-temp3").html(data.list[24].main.temp + " °F");
+            $("#current-description3").html(data.list[24].weather[0].description.toUpperCase());
 
-    // NEXT DAY WEATHER DAY 3
-    $("#day-three").html(dayThree.toUpperCase());
-    $("#icon3").html("<img src='http://openweathermap.org/img/w/" + data.list[24].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
-    $("#current-temp3").html(data.list[24].main.temp + " °F");
-    $("#current-description3").html(data.list[24].weather[0].description.toUpperCase());
-
-    // NEXT DAY WEATHER DAY 4
-    $("#day-four").html(dayFour.toUpperCase());
-    $("#icon4").html("<img src='http://openweathermap.org/img/w/" + data.list[32].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
-    $("#current-temp4").html(data.list[32].main.temp + " °F");
-    $("#current-description4").html(data.list[32].weather[0].description.toUpperCase());
-    });
-    }  
-
+            // NEXT DAY WEATHER DAY 4
+            $("#day-four").html(dayFour.toUpperCase());
+            $("#icon4").html("<img src='http://openweathermap.org/img/w/" + data.list[32].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#current-temp4").html(data.list[32].main.temp + " °F");
+            $("#current-description4").html(data.list[32].weather[0].description.toUpperCase());
+        });
+}  
 
 // this function is receiving the chosen option's value. Example - ca for california
 function getStateName(event) {
@@ -176,7 +172,6 @@ function getStateName(event) {
         console.log("Please choose the state");
         closeRightPanel()
     }
-
 }
 
 // Function for getting current covidd info by state
