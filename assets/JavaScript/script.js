@@ -39,6 +39,8 @@ function closeRightPanel() {
 
 // WEATHER FUNCTION STARTS HERE 
 $('#submitButton').on('click', function() {
+    console.log("city---------", city)
+    console.log("cityPark--------", cityPark)
     if(city && cityPark) {
         var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
         var currentWeather = 'http://api.openweathermap.org/data/2.5/weather?q='+ city +'&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
@@ -46,6 +48,9 @@ $('#submitButton').on('click', function() {
         searchWeather(requestUrl);
         getCurrentWeather(currentWeather);
         getCurrentPark(currentPark);
+        getCovidInfo(cityPark);
+        rightPanelEl.classList.add("show");
+        getStateName()
     }
 });
 
@@ -80,7 +85,6 @@ function getCurrentPark(currentPark) {
                             </div> `   
             })
             document.getElementById("ParkCards").innerHTML = data1;
-            rightPanelEl.classList.add("show");
         });
 }
 
@@ -117,8 +121,7 @@ function parkInfo(id) {
         </div>
         <button onclick="goBack()">Go Back</button>
     `;
-    console.log('2')
-
+    // rightPanelEl.classList.add("show");
 }
 
 function showFavorites() {
@@ -132,7 +135,7 @@ function showFavorites() {
     });
     list += "</div>";
     btn.innerHTML += list
-    submitButtonEl.click()
+    $('#submitButton').click();
     // btn.appendChild(list)
 }
 
@@ -199,10 +202,10 @@ function searchWeather(requestUrl) {
 }  
 
 // this function is receiving the chosen option's value. Example - ca for california
-function getStateName(event) {
+function getStateName(isFav) {
     let value = statesEl.options[statesEl.selectedIndex].value;
     console.log(value)
-    if (value != "state") {
+    if (value != "state" || isFav) {
         // to get state's name and pass it as a parameter for your function please call your function HERE and give it parameter (value) 
         covidInfoEl.innerHTML = "";
         let selectedPhraseEl = document.querySelector("#confucius");
@@ -226,7 +229,6 @@ function getStateName(event) {
         if (document.getElementById("select-state").classList.contains('selection'))
             document.getElementById("select-state").classList.toggle("select-selected");
         
-        getCovidInfo(value)
     } else {
         // need modal error window for this message 
         closeRightPanel()
@@ -277,4 +279,4 @@ function getCovidInfo(stateForCovid) {
         })
 }
 
-submitButtonEl.addEventListener("click", getStateName);
+// submitButtonEl.addEventListener("click", getStateName);
