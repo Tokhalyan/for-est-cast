@@ -75,8 +75,8 @@ function getCurrentPark(currentPark) {
             let data1 = "";
             currentParkList.forEach((item) => {
                 data1 += `  <div class="parkCard" onclick="parkInfo('${item.id}')">
-                                <p id="park-name-header" class="park-name" data-park-name="${item.fullName}">${item.fullName}</p>
                                 <img src=${item.images[0].url}>
+                                <p id="park-name-header" class="park-name" data-park-name="${item.fullName}">${item.fullName}</p>
                             </div> `   
             })
             document.getElementById("ParkCards").innerHTML = data1;

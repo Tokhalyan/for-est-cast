@@ -32,7 +32,8 @@
                     <div class="state-select" id="state-selection">
                         <label for="states" class="where-to" id="where-to-label">Where to?</label>
                         <div class="select is-rounded is-primary selection" id="select-state">
-                            <select name="states" id="states" class="has-text-grey-light" onchange="currentStateHandler()">
+                            <select name="states" id="states" class="has-text-grey-light"
+                                onchange="currentStateHandler()">
                                 <option value="state" selected disabled>US States</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -88,7 +89,8 @@
                         </div>
                         <div class="buttons">
                             <button id="submitButton" class="button is-link has-background-success-dark">Search</button>
-                            <button class="button is-link is-light has-background-success-light has-text-primary-dark">Search
+                            <button
+                                class="button is-link is-light has-background-success-light has-text-primary-dark">Search
                                 History</button>
                         </div>
                     </div>
@@ -96,95 +98,137 @@
             </div>
         </div>
 
-    <!-- Here we will have all the content -->
-    <div class="right-panel" id="main-content">
-        <button class="delete is-large" onclick="closeRightPanel()"></button>
-        <div>
-            
-            <!-- PARK INFORMATION GOES HERE -->
+        <!-- Here we will have all the content -->
+        <div class="right-panel" id="main-content">
+            <button class="delete is-large" onclick="closeRightPanel()"></button>
+            <div>
 
-            <div id="ParkCards">
+                <!-- PARK INFORMATION GOES HERE -->
+                <!-- 
+            <div class ="card" id="ParkCards">
                 <a href="#">
-                    <div>
-                        <p id="park-city" class="cityHeader"></p>
+                    <div class="card-header">
+                        <p id="park-city" class="cityHeader card-header-title"></p>
                     </div>
-                    <div class="parkCard">
-                        <p id="park-name-header"></p>
+                    <div class="parkCard card-header-icon">
+                        <p id="park-name-header card-header-title"></p>
+                        <div class="card-image">
                         <img class="fav" id="click-image"
                             src="#" alt="">
+                        </div>
 
                     </div>
                 </a>
-            </div>
-            <br><br>
+            </div> -->
 
-            <!-- WEATHER INFORMATION GOES HERE -->
-            <div id="master-container">
-                <div>
-                    <p id="current-city" class="cityHeader"></p>
+                <!-- <div id="ParkCards"
+                    class=" is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly columns ">
+                    <a href="#">
+                        <div class="card">
+                            <div class="card-image parkCard">
+                                <img class="fav" id="click-image" src="#" alt="">
+                            </div>
+                            <div class="content">
+                                <p id="park-city" class="cityHeader"></p>
+
+                                <p id="park-name-header subtitle is-6"></p>
+                            </div>
+                        </div>
+                    </a>
+                </div> -->
+                <div id="ParkCards" class=" is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly columns ">
+                <a href="#">
+                <div class="card parkCard">
+                    <div class="card-image">
+                      <figure class="image">
+                        <img class="fav" id="click-image" src="#" alt="">
+                      </figure>
+                    </div>
+                    <div class="card-content">
+                        <div class="media-content">
+                          <p id="park-city" class="title is-4"></p>
+                          <p id="park-name-header subtitle is-6" class="subtitle is-6"></p>
+                        </div>
+                      </div>
+                      <div class="content">
+                        <!-- <p id="park-city"></p>
+                          <p id="park-name-header subtitle is-6"></p> -->
+                      
+                      </div>
+                    </div>
+                  </div>
+                </a>
+</div>
+
+                <br><br>
+
+                <!-- WEATHER INFORMATION GOES HERE -->
+                <div id="master-container">
+                    <div>
+                        <p id="current-city" class="cityHeader"></p>
+                    </div>
+                    <br>
+                    <div id="main-container" class="columns">
+                        <div class="column card card-bg">
+                            <!-- CURRENT DATE WEATHER -->
+                            <p>TODAY</p>
+                            <div id="icon"></div>
+                            <p id="current-temp"></p>
+                            <p id="current-description"></p>
+                        </div>
+                        <br>
+                        <div class="column card card-bg">
+                            <!-- NEXT DAY WEATHER - DAY 1 -->
+                            <p id="day-one"></p>
+                            <div id="icon1"></div>
+                            <p id="current-temp1"></p>
+                            <p id="current-description1"></p>
+                        </div>
+                        <br>
+                        <div class="column card card-bg">
+                            <!-- NEXT DAY WEATHER - DAY 2 -->
+                            <p id="day-two"></p>
+                            <div id="icon2"></div>
+                            <p id="current-temp2"></p>
+                            <p id="current-description2"></p>
+                        </div>
+                        <br>
+                        <div class="column card card-bg">
+                            <!-- NEXT DAY WEATHER - DAY 3 -->
+                            <p id="day-three"></p>
+                            <div id="icon3"></div>
+                            <p id="current-temp3"></p>
+                            <p id="current-description3"></p>
+                        </div>
+                        <br>
+                        <div class="column card card-bg">
+                            <!-- NEXT DAY WEATHER - DAY 4 -->
+                            <p id="day-four"></p>
+                            <div id="icon4"></div>
+                            <p id="current-temp4"></p>
+                            <p id="current-description4"></p>
+                        </div>
+                        <br>
+                    </div>
+                    <div>
+                    </div>
                 </div>
-                <br>
-                <div id="main-container" class="columns">
-                    <div class="column card card-bg">
-                        <!-- CURRENT DATE WEATHER -->
-                        <p>TODAY</p>
-                        <div id="icon"></div>
-                        <p id="current-temp"></p>
-                        <p id="current-description"></p>
-                    </div>
-                    <br>
-                    <div class="column card card-bg">
-                        <!-- NEXT DAY WEATHER - DAY 1 -->
-                        <p id="day-one"></p>
-                        <div id="icon1"></div>
-                        <p id="current-temp1"></p>
-                        <p id="current-description1"></p>
-                    </div>
-                    <br>
-                    <div class="column card card-bg">
-                        <!-- NEXT DAY WEATHER - DAY 2 -->
-                        <p id="day-two"></p>
-                        <div id="icon2"></div>
-                        <p id="current-temp2"></p>
-                        <p id="current-description2"></p>
-                    </div>
-                    <br>
-                    <div class="column card card-bg">
-                        <!-- NEXT DAY WEATHER - DAY 3 -->
-                        <p id="day-three"></p>
-                        <div id="icon3"></div>
-                        <p id="current-temp3"></p>
-                        <p id="current-description3"></p>
-                    </div>
-                    <br>
-                    <div class="column card card-bg">
-                        <!-- NEXT DAY WEATHER - DAY 4 -->
-                        <p id="day-four"></p>
-                        <div id="icon4"></div>
-                        <p id="current-temp4"></p>
-                        <p id="current-description4"></p>
-                    </div>
-                    <br>
+
+                <div id="covid-info">
+                    <!-- COVID INFORMATION GOES HERE -->
+                    <div id="cases"></div>
+                    <div id="positive-tests"></div>
+                    <div id="deaths"></div>
+                    <div id="covid-url"></div>
                 </div>
-                <div>
-                </div>
-            </div>
-            
-            <div id="covid-info">
-                <!-- COVID INFORMATION GOES HERE -->
-                <div id="cases"></div>
-                <div id="positive-tests"></div>
-                <div id="deaths"></div>
-                <div id="covid-url"></div>
-            </div>
 
 
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-            <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-            <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
-            <script src="./assets/JavaScript/script.js"></script>
-            <!-- <script src="./assets/JavaScript/park.js"></script> -->
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+                <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+                <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+                <script src="./assets/JavaScript/script.js"></script>
+                <!-- <script src="./assets/JavaScript/park.js"></script> -->
 
 </body>
 
