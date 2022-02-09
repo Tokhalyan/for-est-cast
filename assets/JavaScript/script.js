@@ -89,15 +89,12 @@ function getCurrentPark(currentPark) {
 }
 
 function parkInfo(id) {
-    console.log('1', id)
     let info = currentParkList ? currentParkList.find(item => item.id === id): null;
     if(!info) {
         let favorites = JSON.parse(localStorage.getItem('favorites'));
         info = favorites.find(item => item.id === id)
     }
-    // let favInfo = JSON.stringify(info);
-    // console.log("info----------", info)
-    // console.log("favInfo---------", favInfo)
+    
     document.getElementById("ParkCards").innerHTML = `
     <h3>${info.fullName}</h3>
     <button type="button" onclick="addFavorite('${info.id}')">Save as a favorite</button>
@@ -121,21 +118,25 @@ function parkInfo(id) {
         </div>
         <button onclick="goBack()">Go Back</button>
     `;
-    // rightPanelEl.classList.add("show");
+    rightPanelEl.classList.add("show");
 }
 
 function showFavorites() {
+    if(document.querySelector('.fav_list')) {
+        document.querySelector('.fav_list').remove()
+        return 
+    }
     let localFav = localStorage.getItem('favorites');
     const favorites = JSON.parse(localFav);
     let btn = document.querySelector('.buttons');
     let list = "<div class='fav_list'>";
     favorites.forEach(el => {
         list += `<div onclick="parkInfo('${el.id}')">${el.fullName}</div>`;
-
     });
     list += "</div>";
-    btn.innerHTML += list
-    $('#submitButton').click();
+    btn.appendChild($(list)[0]);
+    // $('#submitButton').click();
+    getStateName(true);
     // btn.appendChild(list)
 }
 
