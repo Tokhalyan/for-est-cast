@@ -32,7 +32,7 @@
                     <div class="state-select" id="state-selection">
                         <label for="states" class="where-to" id="where-to-label">Where to?</label>
                         <div class="select is-rounded is-primary selection" id="select-state">
-                            <select name="states" id="states" class="has-text-grey-light">
+                            <select name="states" id="states" class="has-text-grey-light" onchange="currentStateHandler()">
                                 <option value="state" selected disabled>US States</option>
                                 <option value="AL">Alabama</option>
                                 <option value="AK">Alaska</option>
@@ -168,13 +168,14 @@
                 </div>
                 <div>
                 </div>
-                <div id="covid-info">
-                    <!-- COVID INFORMATION GOES HERE -->
-                    <div id="cases"></div>
-                    <div id="positive-tests"></div>
-                    <div id="deaths"></div>
-                    <div id="covid-url"></div>
-                </div>
+            </div>
+            
+            <div id="covid-info">
+                <!-- COVID INFORMATION GOES HERE -->
+                <div id="cases"></div>
+                <div id="positive-tests"></div>
+                <div id="deaths"></div>
+                <div id="covid-url"></div>
             </div>
 
 

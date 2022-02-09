@@ -5,14 +5,12 @@ const mainContentEl = document.querySelector("#main-content");
 const statesEl = document.querySelector("#states");
 const rightPanelEl = document.querySelector(".right-panel");
 const covidInfoEl = document.querySelector("#covid-info");
+let city;
+let cityPark;
 let currentParkList;
 
 // api key for covid api
 let covidApiKey = "a61d828378ec47f7a19232209993e4e1"
-
-// function openRightPanel() {
-    
-// }
 
 function closeRightPanel() {
     rightPanelEl.classList.remove("show");
@@ -41,14 +39,14 @@ function closeRightPanel() {
 
 // WEATHER FUNCTION STARTS HERE 
 $('#submitButton').on('click', function() {
-    var city = $("#states :selected").text();
-    var cityPark = $("#states :selected").val();
-    var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
-    var currentWeather = 'http://api.openweathermap.org/data/2.5/weather?q='+ city +'&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
-    var currentPark =  'https://developer.nps.gov/api/v1/parks?stateCode=' + cityPark + '&limit=12&stateCode=&api_key=aasGgYTFCP5RhABVLXGcydD4VYevDcBYE0c6Qnh2';
-    searchWeather(requestUrl);
-    getCurrentWeather(currentWeather)
-    getCurrentPark(currentPark);
+    if(city && cityPark) {
+        var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
+        var currentWeather = 'http://api.openweathermap.org/data/2.5/weather?q='+ city +'&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
+        var currentPark =  'https://developer.nps.gov/api/v1/parks?stateCode=' + cityPark + '&stateCode=&api_key=aasGgYTFCP5RhABVLXGcydD4VYevDcBYE0c6Qnh2';
+        searchWeather(requestUrl);
+        getCurrentWeather(currentWeather);
+        getCurrentPark(currentPark);
+    }
 });
 
 function getCurrentWeather(currentWeather) { 
@@ -67,6 +65,7 @@ function getCurrentWeather(currentWeather) {
 }
 
 function getCurrentPark(currentPark) { 
+    console.log(currentPark)
     fetch(currentPark)
         .then(function (response) {
             return response.json(); 
@@ -107,14 +106,17 @@ function parkInfo(id) {
             Saturday: ${info.operatingHours[0].standardHours.saturday}<br>
             Sunday: ${info.operatingHours[0].standardHours.sunday}
         </div>
+        <button onclick="goBack()">Go Back</button>
     `
+}
 
-//     city: "Fort Smith"
-// line1: "301 Parker Ave"
-// line2: ""
-// line3: ""
-// postalCode: "72901"
-// stateCode: "AR"
+function goBack() {
+    $('#submitButton').click();
+}
+
+function currentStateHandler() {
+    city = $("#states :selected").text();
+    cityPark = $("#states :selected").val();
 }
     
 function searchWeather(requestUrl) {
@@ -159,6 +161,7 @@ function searchWeather(requestUrl) {
 // this function is receiving the chosen option's value. Example - ca for california
 function getStateName(event) {
     let value = statesEl.options[statesEl.selectedIndex].value;
+    console.log(value)
     if (value != "state") {
         // to get state's name and pass it as a parameter for your function please call your function HERE and give it parameter (value) 
         covidInfoEl.innerHTML = "";
@@ -234,13 +237,4 @@ function getCovidInfo(stateForCovid) {
         })
 }
 
-
 submitButtonEl.addEventListener("click", getStateName);
-
-
-
-    //   window.onload=function() {
-    //   $(".parkCard").on('click', function() {
-    //     $(".cityHeader").html($(this).attr('url'));
-    // });
-    //   }
