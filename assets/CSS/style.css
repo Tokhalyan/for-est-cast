@@ -131,11 +131,6 @@ cursor: pointer;
     opacity: 0.5;
 }
 
-.parkCard {
-    text-align: center;
-    color: black;
-}
-
 #current-city {
 text-align: center;
 font-family: 'Vollkorn', serif;
@@ -167,8 +162,10 @@ margin:0 ;
     margin: 2%;
     text-align: center;
     color: white;
-    width: 30%;
+    width: 25%;
     border-radius: 5px;
+    text-align: center;
+    color: black;
 }
 
 
@@ -191,7 +188,7 @@ margin:0 ;
 
 #ParkCards {
     font-family: 'Vollkorn', serif;
-    display:flex;
+    
 }
 
 #ParkCards h3 {
@@ -200,12 +197,10 @@ margin:0 ;
 }
 
 #ParkCards, p {
-    margin: 5%;
     text-align: justify;
 }
 
 #ParkCards, img {
-justify-content: center;
 align-items: center;
 }
 
