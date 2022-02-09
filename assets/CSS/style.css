@@ -51,8 +51,8 @@ h2 {
     font-family: 'Vollkorn', serif;
     display: block;
     font-size: 30px;
-     text-indent: 15%; 
-     height: 30px; 
+    text-indent: 15%; 
+    height: 30px; 
 } 
 
 .state-select {
@@ -200,61 +200,40 @@ height: 90vh;
 ::-webkit-scrollbar {
     width: 0px;
     height: 0px;
-  }
+}
 
-  ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: #f1f1f1; 
-  }
+}
 
-  ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: #888; 
-  }
+}
 
-  ::-webkit-scrollbar-thumb:hover {
-    background: #555; 
-  }
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.parkCards {
+    width: 100%;
+    height: 50%;
+}
 
 
-     .parkCards {
-          width: 100%;
-          height: 50%;
-      }
+/* scrollbar end*/
 
-      #ParkCards2 {
-          text-align: center;
-        width: 80%;
-        height: 600px;
-        border: rgb(248, 247, 247) solid 2px;
-    } 
-        .noShow {
-        display: none;
+@media screen and (max-width: 1550px) {
+    #confucius {
+        font-size: 25px; 
     }
 
-    #park-image2 {
-        width: 500px;
-        height: 300px;
+    .where-to-selected {
+        font-size: 25px;
     }
+}
 
-  /* scrollbar end*/
-
-  @media screen and (max-width: 1550px) {
-      #confucius {
-       font-size: 25px; 
-      }
-
-      .where-to-selected {
-          font-size: 25px;
-      }
-  }
-   
-  @media screen and (max-width: 1290px) {
+@media screen and (max-width: 1290px) {
     .right-panel {
         width: 100%;
     }
-  }
-
-
-
-/* Media queries are needed for the proper left sidebar view */
-/* width 70vw -> 100vw right panel */
-/* We can make 100vw for the right panel (instead of 65vw) for the small screen sizes, there's a button to close and return back to the search panel */
+}

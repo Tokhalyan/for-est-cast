@@ -5,13 +5,14 @@ const mainContentEl = document.querySelector("#main-content");
 const statesEl = document.querySelector("#states");
 const rightPanelEl = document.querySelector(".right-panel");
 const covidInfoEl = document.querySelector("#covid-info");
+let currentParkList;
 
 // api key for covid api
 let covidApiKey = "a61d828378ec47f7a19232209993e4e1"
 
-function openRightPanel() {
-    rightPanelEl.classList.add("show");
-}
+// function openRightPanel() {
+    
+// }
 
 function closeRightPanel() {
     rightPanelEl.classList.remove("show");
@@ -57,11 +58,6 @@ function getCurrentWeather(currentWeather) {
         })
         .then(function (data) {  
 
-            console.log(data);
-            console.log(data.name);
-            console.log(Math.floor(data.main.temp));
-            console.log(data.weather[0].description);
-
         // CURRENT WEATHER 
         $("#current-city").html(data.name.toUpperCase());
         $("#icon").html("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
@@ -70,73 +66,56 @@ function getCurrentWeather(currentWeather) {
         });
 }
 
-
-
 function getCurrentPark(currentPark) { 
     fetch(currentPark)
         .then(function (response) {
-            return response.json();
+            return response.json(); 
         })
         .then(function (data) {  
-            console.log(data);
-            console.log(data.data.length);
-            console.log(data.data[0].fullName);
+            currentParkList = data.data;
             let data1 = "";
-            data.data.map((values) => {
-            data1 += `      <div class="parkCard" onClick="parkInfo(event)">
-                                <p id="park-name-header" class="park-name" data-park-name="${values.fullName}" >${values.fullName}</p> <br><br>
-                                <p class="park-description noShow" data-park-description="${values.description}">${values.description}</p>
-
-                                    <img  class="park-image" data-park-description="${values.description}" data-park-name="${values.fullName}" data-park-image="${values.images[0].url}" src=${values.images[0].url}>
-                            </div> `  
-            
-                        document.getElementById("ParkCards").innerHTML = data1;
-                        
-                        })
+            currentParkList.forEach((item) => {
+                data1 += `  <div class="parkCard" onclick="parkInfo('${item.id}')">
+                                <p id="park-name-header" class="park-name" data-park-name="${item.fullName}">${item.fullName}</p>
+                                <img src=${item.images[0].url}>
+                            </div> `   
+            })
+            document.getElementById("ParkCards").innerHTML = data1;
+            rightPanelEl.classList.add("show");
         });
 }
 
+function parkInfo(id) {
+    let info = currentParkList.find(item => item.id === id);
+    document.getElementById("ParkCards").innerHTML = `
+        <h3>${info.fullName}</h3>
+        <p>${info.description}</p>
+        <div style="width:100%">
+            <img src=${info.images[0].url} style="width:600px; height:400px">
+        </div>
+        <div>Address: 
+            ${info.addresses[1].line1} ${info.addresses[1].line2} ${info.addresses[1].line3}, ${info.addresses[1].city}, ${info.addresses[1].postalCode} ${info.addresses[1]. stateCode}
+        </div>
+        <div>Phone Number: ${info.contacts.phoneNumbers[0].phoneNumber}</div>
+        <div>
+            Park Hours: <br>
+            Monday: ${info.operatingHours[0].standardHours.monday}<br>
+            Tuesday: ${info.operatingHours[0].standardHours.tuesday}<br>
+            Wednesday: ${info.operatingHours[0].standardHours.wednesday}<br>
+            Thursday: ${info.operatingHours[0].standardHours.thursday}<br>
+            Friday: ${info.operatingHours[0].standardHours.friday}<br>
+            Saturday: ${info.operatingHours[0].standardHours.saturday}<br>
+            Sunday: ${info.operatingHours[0].standardHours.sunday}
+        </div>
+    `
 
-var backBtnEl = document.getElementById("back-btn");
-backBtnEl.addEventListener("click", backHome);
-
-function backHome() {
-    
-    document.getElementById("ParkCards").classList.remove("noShow");
-    document.getElementById("ParkCards2").classList.add("noShow");
-
-
+//     city: "Fort Smith"
+// line1: "301 Parker Ave"
+// line2: ""
+// line3: ""
+// postalCode: "72901"
+// stateCode: "AR"
 }
-
-
-function parkInfo(event) {
-    // console.log(event)
-    if(event.target.matches(".park-image")) { 
-        document.getElementById("ParkCards").classList.add("noShow");
-        document.getElementById("ParkCards2").classList.remove("noShow");
-        console.log('event', event);
-        console.log(event.target.getAttribute('data-park-name'));
-        console.log(event.target.getAttribute('data-park-description'));
-        console.log(event.target.getAttribute('data-park-image'));
-        
-
-        var parkName = (event.target.getAttribute('data-park-name'));
-        document.getElementById("park-name-header2").innerHTML = parkName;
-
-        var parkDescription = (event.target.getAttribute('data-park-description'));
-        document.getElementById("park-description2").innerHTML = parkDescription;
-
-        var parkImage = (event.target.getAttribute('data-park-image'));
-        document.getElementById("park-image2").src = parkImage;
-
-
-
-    }
-}
-
-
-
-
     
 function searchWeather(requestUrl) {
     fetch(requestUrl)
@@ -144,8 +123,6 @@ function searchWeather(requestUrl) {
             return response.json();
         })
         .then(function (data) {  
-            console.log(data);
-            console.log(data.city.name);
 
             // MOMENTS.JS FOR WEATHER DATES/DAYS
             let dayOne = moment().add(1, 'days').format("dddd");
@@ -209,7 +186,6 @@ function getStateName(event) {
         getCovidInfo(value)
     } else {
         // need modal error window for this message 
-        console.log("Please choose the state");
         closeRightPanel()
     }
 }
