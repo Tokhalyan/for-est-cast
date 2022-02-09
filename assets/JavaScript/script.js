@@ -82,6 +82,7 @@ function getCurrentPark(currentPark) {
             document.getElementById("ParkCards").innerHTML = data1;
             rightPanelEl.classList.add("show");
         });
+        
 }
 
 function parkInfo(id) {
@@ -89,14 +90,15 @@ function parkInfo(id) {
     document.getElementById("ParkCards").innerHTML = `
         <h3>${info.fullName}</h3>
         <p>${info.description}</p>
-        <div style="width:100%">
-            <img src=${info.images[0].url} style="width:600px; height:400px">
+        <div style="width:100% padding: 50%">
+            <img src=${info.images[0].url} style="width:600px; height:400px" class="is-align-self-center">
         </div>
-        <div>Address: 
+        <div class= "columns" style="margin-left: 20%">
+        <div class= "address column is-3">Address: <br>
             ${info.addresses[1].line1} ${info.addresses[1].line2} ${info.addresses[1].line3}, ${info.addresses[1].city}, ${info.addresses[1].postalCode} ${info.addresses[1]. stateCode}
         </div>
-        <div>Phone Number: ${info.contacts.phoneNumbers[0].phoneNumber}</div>
-        <div>
+        <div class = "phone-number column is-4">Phone Number: ${info.contacts.phoneNumbers[0].phoneNumber}</div>
+        <div class= "park-hours column is-4">
             Park Hours: <br>
             Monday: ${info.operatingHours[0].standardHours.monday}<br>
             Tuesday: ${info.operatingHours[0].standardHours.tuesday}<br>
@@ -106,7 +108,9 @@ function parkInfo(id) {
             Saturday: ${info.operatingHours[0].standardHours.saturday}<br>
             Sunday: ${info.operatingHours[0].standardHours.sunday}
         </div>
-        <button onclick="goBack()">Go Back</button>
+        </div>
+        
+        
     `
 }
 
