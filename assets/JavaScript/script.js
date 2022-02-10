@@ -98,7 +98,7 @@ function parkInfo(id) {
     
     document.getElementById("ParkCards").innerHTML = `
     <h3>${info.fullName}</h3>
-    <button type="button" onclick="addFavorite('${info.id}')">Save as a favorite</button>
+    <button class ="favorite" type="button" src="assets/Images/favorite.png" onclick="addFavorite('${info.id}')"></button>
         <p>${info.description}</p>
         <div style="width:100% padding: 50%">
             <img src=${info.images[0].url} style="width:600px; height:400px" class="is-align-self-center">
@@ -118,7 +118,7 @@ function parkInfo(id) {
             Saturday: ${info.operatingHours[0].standardHours.saturday}<br>
             Sunday: ${info.operatingHours[0].standardHours.sunday}
         </div>
-        <button onclick="goBack()">Go Back</button>
+        
     `;
     rightPanelEl.classList.add("show");
 }
@@ -131,7 +131,7 @@ function showFavorites() {
     let localFav = localStorage.getItem('favorites');
     const favorites = JSON.parse(localFav);
     let btn = document.querySelector('.buttons');
-    let list = "<div class='fav_list'>";
+    let list = "<div class='fav_list dropdown-content'>";
     favorites.forEach(el => {
         list += `<div onclick="parkInfo('${el.id}')">${el.fullName}</div>`;
     });

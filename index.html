@@ -89,7 +89,10 @@
                         </div>
                         <div class="buttons">
                             <button id="submitButton" class="button is-link has-background-success-dark">Search</button>
-                            <button onclick="showFavorites()" id="fav_btn" class="button is-link is-light has-background-success-light has-text-primary-dark">Favorite Parks</button>
+                            <div class="dropdown is-active">
+                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2"
+                                        onclick="showFavorites()" id="fav_btn">Favorite Parks</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -104,7 +107,7 @@
                 <!-- PARK INFORMATION GOES HERE -->
 
                 <div id="ParkCards"
-                    class=" is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-space-evenly columns ">
+                    class=" is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-center columns ">
                     <a href="#">
                         <div class="card parkCard">
                             <div class="card-image is-justify-content-center">
@@ -182,16 +185,16 @@
                 </div>
             </div>
             <h3 class="covid-header">Covid Stats</h3>
-                <div id="covid-info">
-                    <!-- COVID INFORMATION GOES HERE -->
-                    <div id="cases"></div>
-                    <div id="positive-tests"></div>
-                    <div id="deaths"></div>
-                    <div id="covid-url"></div>
-                </div>
-                <button title="Go Back" class="back-btn" onclick="goBack()" src="assets/Images/back-button.png"></button>
+            <div id="covid-info">
+                <!-- COVID INFORMATION GOES HERE -->
+                <div id="cases"></div>
+                <div id="positive-tests"></div>
+                <div id="deaths"></div>
+                <div id="covid-url"></div>
+            </div>
+            <button title="Go Back" class="back-btn" onclick="goBack()" src="assets/Images/back-button.png"></button>
         </div>
-    
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
