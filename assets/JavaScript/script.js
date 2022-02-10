@@ -41,8 +41,8 @@ function closeRightPanel() {
 // Weather and Park Apis declared and under onclick function
 $('#submitButton').on('click', function() {
     if(city && cityPark) {
-        var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
-        var currentWeather = 'http://api.openweathermap.org/data/2.5/weather?q='+ city +'&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
+        var requestUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
+        var currentWeather = 'https://api.openweathermap.org/data/2.5/weather?q='+ city +'&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
         var currentPark =  'https://developer.nps.gov/api/v1/parks?stateCode=' + cityPark + '&stateCode=&api_key=aasGgYTFCP5RhABVLXGcydD4VYevDcBYE0c6Qnh2';
         searchWeather(requestUrl);
         getCurrentWeather(currentWeather);
