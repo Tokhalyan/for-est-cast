@@ -31,6 +31,7 @@ WHEN I push search log button
 * NPS API 
 * Open Weather Map API
 * Covid Act Now API
+* Google Fonts API
 
 ## Contribution
 Made with ❤ by Shahen Tokhalyan, Sarah Wyner, Christian Carandang
