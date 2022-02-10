@@ -260,6 +260,28 @@ font-size: 30px;
     background: #555;
 }
 
+.parkCards {
+    width: 100%;
+    height: 50%;
+}
+
+.buttons {
+    position: relative;
+}
+.fav_list {
+    position: absolute;
+    
+    max-width: 30px;
+    top: 150px;
+    right: 50px;
+}
+
+.fav_list div {
+    display: inline-block;
+    border: 2px solid white;
+    background-color: grey;
+    border-radius: 5px;
+}
 
 /* scrollbar end*/
 

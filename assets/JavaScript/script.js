@@ -39,6 +39,8 @@ function closeRightPanel() {
 
 // WEATHER FUNCTION STARTS HERE 
 $('#submitButton').on('click', function() {
+    console.log("city---------", city)
+    console.log("cityPark--------", cityPark)
     if(city && cityPark) {
         var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
         var currentWeather = 'http://api.openweathermap.org/data/2.5/weather?q='+ city +'&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
@@ -46,6 +48,9 @@ $('#submitButton').on('click', function() {
         searchWeather(requestUrl);
         getCurrentWeather(currentWeather);
         getCurrentPark(currentPark);
+        getCovidInfo(cityPark);
+        rightPanelEl.classList.add("show");
+        getStateName()
     }
 });
 
@@ -80,15 +85,20 @@ function getCurrentPark(currentPark) {
                             </div> `   
             })
             document.getElementById("ParkCards").innerHTML = data1;
-            rightPanelEl.classList.add("show");
         });
         
 }
 
 function parkInfo(id) {
-    let info = currentParkList.find(item => item.id === id);
+    let info = currentParkList ? currentParkList.find(item => item.id === id): null;
+    if(!info) {
+        let favorites = JSON.parse(localStorage.getItem('favorites'));
+        info = favorites.find(item => item.id === id)
+    }
+    
     document.getElementById("ParkCards").innerHTML = `
-        <h3>${info.fullName}</h3>
+    <h3>${info.fullName}</h3>
+    <button type="button" onclick="addFavorite('${info.id}')">Save as a favorite</button>
         <p>${info.description}</p>
         <div style="width:100% padding: 50%">
             <img src=${info.images[0].url} style="width:600px; height:400px" class="is-align-self-center">
@@ -108,10 +118,42 @@ function parkInfo(id) {
             Saturday: ${info.operatingHours[0].standardHours.saturday}<br>
             Sunday: ${info.operatingHours[0].standardHours.sunday}
         </div>
-        </div>
-        
-        
-    `
+        <button onclick="goBack()">Go Back</button>
+    `;
+    rightPanelEl.classList.add("show");
+}
+
+function showFavorites() {
+    if(document.querySelector('.fav_list')) {
+        document.querySelector('.fav_list').remove()
+        return 
+    }
+    let localFav = localStorage.getItem('favorites');
+    const favorites = JSON.parse(localFav);
+    let btn = document.querySelector('.buttons');
+    let list = "<div class='fav_list'>";
+    favorites.forEach(el => {
+        list += `<div onclick="parkInfo('${el.id}')">${el.fullName}</div>`;
+    });
+    list += "</div>";
+    btn.appendChild($(list)[0]);
+    // $('#submitButton').click();
+    getStateName(true);
+    // btn.appendChild(list)
+}
+
+function addFavorite(id) {
+    const localFav = localStorage.getItem('favorites');
+    const favorites = JSON.parse(localFav) || [];
+    let info = currentParkList.find(item => item.id === id);
+    
+    console.log(favorites)
+
+    if(!favorites.find(item => item.id === id )) {
+        favorites.push(info);
+    }
+
+    localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
 function goBack() {
@@ -163,10 +205,10 @@ function searchWeather(requestUrl) {
 }  
 
 // this function is receiving the chosen option's value. Example - ca for california
-function getStateName(event) {
+function getStateName(isFav) {
     let value = statesEl.options[statesEl.selectedIndex].value;
     console.log(value)
-    if (value != "state") {
+    if (value != "state" || isFav) {
         // to get state's name and pass it as a parameter for your function please call your function HERE and give it parameter (value) 
         covidInfoEl.innerHTML = "";
         let selectedPhraseEl = document.querySelector("#confucius");
@@ -190,7 +232,6 @@ function getStateName(event) {
         if (document.getElementById("select-state").classList.contains('selection'))
             document.getElementById("select-state").classList.toggle("select-selected");
         
-        getCovidInfo(value)
     } else {
         // need modal error window for this message 
         closeRightPanel()
@@ -241,4 +282,4 @@ function getCovidInfo(stateForCovid) {
         })
 }
 
-submitButtonEl.addEventListener("click", getStateName);
+// submitButtonEl.addEventListener("click", getStateName);
