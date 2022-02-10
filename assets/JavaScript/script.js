@@ -12,6 +12,7 @@ let currentParkList;
 // api key for covid api
 let covidApiKey = "a61d828378ec47f7a19232209993e4e1"
 
+// Function created to close the right panel where the main content is getting generated
 function closeRightPanel() {
     rightPanelEl.classList.remove("show");
 
@@ -37,10 +38,8 @@ function closeRightPanel() {
         document.getElementById("select-state").classList.toggle("selection");
 }
 
-// WEATHER FUNCTION STARTS HERE 
+// Weather and Park Apis declared and under onclick function
 $('#submitButton').on('click', function() {
-    console.log("city---------", city)
-    console.log("cityPark--------", cityPark)
     if(city && cityPark) {
         var requestUrl = 'http://api.openweathermap.org/data/2.5/forecast?q=' + city + '&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
         var currentWeather = 'http://api.openweathermap.org/data/2.5/weather?q='+ city +'&units=imperial&appid=12aee5ec80ede57ba0b91712e6a6f44d';
@@ -54,6 +53,7 @@ $('#submitButton').on('click', function() {
     }
 });
 
+// function for getting weather information
 function getCurrentWeather(currentWeather) { 
     fetch(currentWeather)
         .then(function (response) {
@@ -69,8 +69,8 @@ function getCurrentWeather(currentWeather) {
         });
 }
 
+// Getting the list of the parks in the chosen state 
 function getCurrentPark(currentPark) { 
-    console.log(currentPark)
     fetch(currentPark)
         .then(function (response) {
             return response.json(); 
@@ -89,6 +89,7 @@ function getCurrentPark(currentPark) {
         
 }
 
+// Information about the chosen park
 function parkInfo(id) {
     let info = currentParkList ? currentParkList.find(item => item.id === id): null;
     if(!info) {
@@ -123,6 +124,7 @@ function parkInfo(id) {
     rightPanelEl.classList.add("show");
 }
 
+// function to show the list of users favorite parks when the favorite parks button is clicked
 function showFavorites() {
     if(document.querySelector('.fav_list')) {
         document.querySelector('.fav_list').remove()
@@ -137,17 +139,14 @@ function showFavorites() {
     });
     list += "</div>";
     btn.appendChild($(list)[0]);
-    // $('#submitButton').click();
     getStateName(true);
-    // btn.appendChild(list)
 }
 
+// saving users chosen favorite parks in the local storage
 function addFavorite(id) {
     const localFav = localStorage.getItem('favorites');
     const favorites = JSON.parse(localFav) || [];
     let info = currentParkList.find(item => item.id === id);
-    
-    console.log(favorites)
 
     if(!favorites.find(item => item.id === id )) {
         favorites.push(info);
@@ -156,15 +155,18 @@ function addFavorite(id) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
+// going back from the park information page to the park list
 function goBack() {
     $('#submitButton').click();
 }
 
+// getting chosen parks value and innerText
 function currentStateHandler() {
     city = $("#states :selected").text();
     cityPark = $("#states :selected").val();
 }
     
+// getting weather informaation for 5 days
 function searchWeather(requestUrl) {
     fetch(requestUrl)
         .then(function (response) {
@@ -204,12 +206,10 @@ function searchWeather(requestUrl) {
         });
 }  
 
-// this function is receiving the chosen option's value. Example - ca for california
+// getting the state's name
 function getStateName(isFav) {
     let value = statesEl.options[statesEl.selectedIndex].value;
-    console.log(value)
     if (value != "state" || isFav) {
-        // to get state's name and pass it as a parameter for your function please call your function HERE and give it parameter (value) 
         covidInfoEl.innerHTML = "";
         let selectedPhraseEl = document.querySelector("#confucius");
         selectedPhraseEl.innerHTML = "Wherever you go, go with all your heart <br> - Confucius";
@@ -233,12 +233,11 @@ function getStateName(isFav) {
             document.getElementById("select-state").classList.toggle("select-selected");
         
     } else {
-        // need modal error window for this message 
         closeRightPanel()
     }
 }
 
-// Function for getting current covidd info by state
+// Function for getting current covid info by state
 function getCovidInfo(stateForCovid) {
     covidApiUrl = `https://api.covidactnow.org/v2/state/${stateForCovid}.json?apiKey=${covidApiKey}`
     fetch(covidApiUrl)
@@ -246,7 +245,6 @@ function getCovidInfo(stateForCovid) {
             return response.json()
         })
         .then(function (data) {
-            // covidInfoEl - covid-i divn a
             let casesEl = document.createElement('p');
             if (data.actuals.cases) {
                 casesEl.innerHTML = `Cases: ${data.actuals.cases}`
@@ -281,5 +279,3 @@ function getCovidInfo(stateForCovid) {
             covidInfoEl.appendChild(anchorEl);
         })
 }
-
-// submitButtonEl.addEventListener("click", getStateName);
