@@ -265,6 +265,11 @@ text-align: center;
 font-size: 30px;
 }
 
+#covid-info a{
+    Text-decoration: none;
+    Color:  white;
+}
+
 #covid-info p{
     margin: 2%;
     font-size: 20px;
