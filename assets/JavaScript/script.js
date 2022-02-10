@@ -97,7 +97,7 @@ function parkInfo(id) {
     }
     
     document.getElementById("ParkCards").innerHTML = `
-    <h3>${info.fullName}</h3>
+    <h3>${info.fullName }</h3>
     <button class ="favorite" type="button" src="assets/Images/favorite.png" onclick="addFavorite('${info.id}')"></button>
         <p>${info.description}</p>
         <div style="width:100% padding: 50%">

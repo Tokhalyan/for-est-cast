@@ -108,8 +108,8 @@ p {
 
 .back-btn {
 background-image: url(../Images/back-button.png);
-width: 45px;
-height: 45px;
+width: 40px;
+height: 40px;
 object-fit: cover;
 background-size: contain;
 background-color:rgba(0, 0, 0, 0.5);
@@ -121,8 +121,21 @@ cursor: pointer;
 
 .favorite {
     background-image: url(../Images/favorite.png);
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
+    object-fit: cover; 
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.favorite:hover{
+background-image: url(../Images/onhover-favorite.png);
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
     object-fit: cover; 
     background-size: contain;
     background-color: transparent;
