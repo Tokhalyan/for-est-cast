@@ -160,9 +160,9 @@ background-image: url(../Images/onhover-favorite.png);
 .card {
     border-radius: 15px;
     text-align: center;
-    color: rgb(252, 249, 249);
     font-weight: bold;
     margin-left: 12px;
+    
 }
 
 .card-bg {
@@ -282,6 +282,7 @@ font-size: 30px;
 }
 
 .covid-card {
+    border-radius: 15px;
     background-color: rgba(202, 13, 13, 0.5);
     width: 20em;
 }
