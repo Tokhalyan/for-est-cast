@@ -63,7 +63,7 @@ function getCurrentWeather(currentWeather) {
 
         // CURRENT WEATHER 
         $("#current-city").html(data.name.toUpperCase());
-        $("#icon").html("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+        $("#icon").html("<img src='https://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
         $("#current-temp").html(data.main.temp + " °F");
         $("#current-description").html(data.weather[0].description.toUpperCase());
         });
@@ -182,25 +182,25 @@ function searchWeather(requestUrl) {
 
             // NEXT DAY WEATHER DAY 1
             $("#day-one").html(dayOne.toUpperCase());
-            $("#icon1").html("<img src='http://openweathermap.org/img/w/" + data.list[8].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#icon1").html("<img src='https://openweathermap.org/img/w/" + data.list[8].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
             $("#current-temp1").html(data.list[8].main.temp + " °F");
             $("#current-description1").html(data.list[8].weather[0].description.toUpperCase());
 
             // NEXT DAY WEATHER DAY 2
             $("#day-two").html(dayTwo.toUpperCase());
-            $("#icon2").html("<img src='http://openweathermap.org/img/w/" + data.list[16].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#icon2").html("<img src='https://openweathermap.org/img/w/" + data.list[16].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
             $("#current-temp2").html(data.list[16].main.temp + " °F");
             $("#current-description2").html(data.list[16].weather[0].description.toUpperCase());
 
             // NEXT DAY WEATHER DAY 3
             $("#day-three").html(dayThree.toUpperCase());
-            $("#icon3").html("<img src='http://openweathermap.org/img/w/" + data.list[24].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#icon3").html("<img src='https://openweathermap.org/img/w/" + data.list[24].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
             $("#current-temp3").html(data.list[24].main.temp + " °F");
             $("#current-description3").html(data.list[24].weather[0].description.toUpperCase());
 
             // NEXT DAY WEATHER DAY 4
             $("#day-four").html(dayFour.toUpperCase());
-            $("#icon4").html("<img src='http://openweathermap.org/img/w/" + data.list[32].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#icon4").html("<img src='https://openweathermap.org/img/w/" + data.list[32].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
             $("#current-temp4").html(data.list[32].main.temp + " °F");
             $("#current-description4").html(data.list[32].weather[0].description.toUpperCase());
         });
