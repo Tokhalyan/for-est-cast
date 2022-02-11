@@ -143,6 +143,10 @@ background-image: url(../Images/onhover-favorite.png);
     cursor: pointer;
 }
 
+.fav-parks {
+    margin: 1%;
+}
+
 .fav_list{
     padding: 5px;
 }
@@ -274,6 +278,12 @@ font-size: 30px;
     margin: 2%;
     font-size: 20px;
     color:white;
+    font-weight: lighter;
+}
+
+.covid-card {
+    background-color: rgba(202, 13, 13, 0.5);
+    width: 20em;
 }
 
 /* info section end */
@@ -313,5 +323,48 @@ font-size: 30px;
 @media screen and (max-width: 1290px) {
     .right-panel {
         width: 100%;
+        
     }
 }
+
+@media screen and (max-width: 414px) {
+    .parkCard img {
+        height:50%;
+    }
+
+    .park-name {
+        font-size:small;
+    }
+
+    #current-city{
+        font-size: 90%;
+    }
+
+    .card{
+        height: 70%;
+    }
+
+    #submitButton {
+        width:40%;
+    }
+
+    .fav-parks {
+        width:95%;
+        font-size: small;
+    }
+
+    .right-panel {
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 3.5em;
+    }
+
+    .where-to {
+        font-size: 1.7em;
+    }
+}
+    .covid-header {
+        font-size: 1.5em;
+    }

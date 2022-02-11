@@ -87,12 +87,12 @@
                                 <option value="WY">Wyoming</option>
                             </select>
                         </div>
-                        <div class="buttons">
-                            <button id="submitButton" class="button is-link has-background-success-dark">Search</button>
+                        <div class="buttons is-flex-direction-row is-flex-wrap-nowrap">
+                            <button id="submitButton" class="button is-link has-background-success-dark ">Search</button>
                             <div class="dropdown is-active">
                                 <br>
-                                    <button class="button" aria-haspopup="true" aria-controls="dropdown-menu2"
-                                        onclick="showFavorites()" id="fav_btn">Favorite Parks</button>
+                                <button class="button fav-parks"  aria-haspopup="true" aria-controls="dropdown-menu2"
+                                    onclick="showFavorites()" id="fav_btn">Favorite Parks</button>
                             </div>
                         </div>
                     </div>
@@ -186,13 +186,17 @@
                 </div>
             </div>
             <h3 class="covid-header">Covid Stats</h3>
-            <div id="covid-info">
+            <div class="is-flex is-justify-content-center">
+            <div class="card covid-card is-align-items-center" id="covid-info">
                 <!-- COVID INFORMATION GOES HERE -->
-                <div id="cases"></div>
-                <div id="positive-tests"></div>
-                <div id="deaths"></div>
-                <div id="covid-url"></div>
-            </div>
+                
+                <div class="content" id="cases"></div>
+                <div class="content" id="positive-tests"></div>
+                <div class="content" id="deaths"></div>
+                <div class="content" id="covid-url"></div>
+          
+        </div>
+    </div>
             <button title="Go Back" class="back-btn" onclick="goBack()" src="assets/Images/back-button.png"></button>
         </div>
 
