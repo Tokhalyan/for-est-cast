@@ -157,12 +157,15 @@ background-image: url(../Images/onhover-favorite.png);
 
 /* WEATHER STYLES*/
 
+#master-container p {
+color: white;
+}
+
 .card {
     border-radius: 15px;
     text-align: center;
-    font-weight: bold;
+    font-weight: bolder;
     margin-left: 12px;
-    
 }
 
 .card-bg {
