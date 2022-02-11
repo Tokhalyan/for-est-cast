@@ -157,10 +157,6 @@ background-image: url(../Images/onhover-favorite.png);
 
 /* WEATHER STYLES*/
 
-#master-container p {
-color: white;
-}
-
 .card {
     border-radius: 15px;
     text-align: center;
@@ -168,9 +164,9 @@ color: white;
     margin-left: 12px;
 }
 
-.card-bg {
+/* .card-bg {
     background-image: url('../images/card-bg.jpg');
-}
+} */
 
 #current-city {
 text-align: center;
