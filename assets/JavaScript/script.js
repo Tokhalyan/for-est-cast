@@ -23,7 +23,8 @@ function closeRightPanel() {
     document.getElementById("state-selection").classList.remove("state-selected");
 
     if (document.getElementById("state-selection").classList.contains("state-selected"))
-    document.getElementById("state-selection").classList.toggle("state-select");
+        document.getElementById("state-selection").classList.toggle("state-select");
+
     document.getElementById("where-to-label").classList.add('where-to');
     document.getElementById("where-to-label").classList.remove('where-to-selected');
         
@@ -61,10 +62,10 @@ function getCurrentWeather(currentWeather) {
         .then(function (data) {  
 
         // CURRENT WEATHER 
-        document.getElementById("current-city").innerHTML = data.name.toUpperCase();
-        document.getElementById("icon").innerHTML = ("<img src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
-        document.getElementById("current-temp").innerHTML = data.main.temp + " °F";
-        document.getElementById("current-description").innerHTML = data.weather[0].description.toUpperCase()
+        $("#current-city").html(data.name.toUpperCase());
+        $("#icon").html("<img src='https://openweathermap.org/img/w/" + data.weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+        $("#current-temp").html(data.main.temp + " °F");
+        $("#current-description").html(data.weather[0].description.toUpperCase());
         });
 }
 
@@ -131,21 +132,14 @@ function showFavorites() {
     }
     let localFav = localStorage.getItem('favorites');
     const favorites = JSON.parse(localFav);
-    // let btn = document.querySelector('.buttons');
-    let list = "<div class='fav_list dropdown-item'>";
+    let btn = document.querySelector('#dropdown-menu');
+    let list = "<div class='fav_list dropdown-content'>";
     favorites.forEach(el => {
-        list += `<a onclick="parkInfo('${el.id}')">${el.fullName}</a><br>`;
+        list += `<a class= "dropdown-item" onclick="parkInfo('${el.id}')">${el.fullName}</a>`;
     });
     list += "</div>";
-    var dropdown = document.querySelector('.dropdown');
-    dropdown.addEventListener('click', function(event) {
-    event.stopPropagation();
-    dropdown.classList.toggle('is-active');
-});
-    favParksEl.appendChild($(list)[0]);
-    // $('#submitButton').click();
+    btn.appendChild($(list)[0]);
     getStateName(true);
-    // btn.appendChild(list)
 }
 
 // saving users chosen favorite parks in the local storage
@@ -186,31 +180,30 @@ function searchWeather(requestUrl) {
             let dayThree = moment().add(3, 'days').format("dddd");
             let dayFour = moment().add(4, 'days').format("dddd");
 
-
             // NEXT DAY WEATHER DAY 1
-            document.getElementById("day-one").innerHTML = dayOne.toUpperCase();
-            document.getElementById("icon1").innerHTML = ("<img src='http://openweathermap.org/img/w/" + data.list[8].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
-            document.getElementById("current-temp1").innerHTML = data.list[8].main.temp + " °F";
-            document.getElementById("current-description1").innerHTML = data.list[8].weather[0].description.toUpperCase()
+            $("#day-one").html(dayOne.toUpperCase());
+            $("#icon1").html("<img src='https://openweathermap.org/img/w/" + data.list[8].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#current-temp1").html(data.list[8].main.temp + " °F");
+            $("#current-description1").html(data.list[8].weather[0].description.toUpperCase());
 
             // NEXT DAY WEATHER DAY 2
-            document.getElementById("day-two").innerHTML = dayTwo.toUpperCase();
-            document.getElementById("icon2").innerHTML = ("<img src='http://openweathermap.org/img/w/" + data.list[16].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
-            document.getElementById("current-temp2").innerHTML = data.list[16].main.temp + " °F";
-            document.getElementById("current-description2").innerHTML = data.list[16].weather[0].description.toUpperCase()
+            $("#day-two").html(dayTwo.toUpperCase());
+            $("#icon2").html("<img src='https://openweathermap.org/img/w/" + data.list[16].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#current-temp2").html(data.list[16].main.temp + " °F");
+            $("#current-description2").html(data.list[16].weather[0].description.toUpperCase());
 
             // NEXT DAY WEATHER DAY 3
-            document.getElementById("day-three").innerHTML = dayThree.toUpperCase();
-            document.getElementById("icon3").innerHTML = ("<img src='http://openweathermap.org/img/w/" + data.list[24].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
-            document.getElementById("current-temp3").innerHTML = data.list[24].main.temp + " °F";
-            document.getElementById("current-description3").innerHTML = data.list[24].weather[0].description.toUpperCase()
+            $("#day-three").html(dayThree.toUpperCase());
+            $("#icon3").html("<img src='https://openweathermap.org/img/w/" + data.list[24].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#current-temp3").html(data.list[24].main.temp + " °F");
+            $("#current-description3").html(data.list[24].weather[0].description.toUpperCase());
 
             // NEXT DAY WEATHER DAY 4
-            document.getElementById("day-four").innerHTML = dayFour.toUpperCase();
-            document.getElementById("icon4").innerHTML = ("<img src='http://openweathermap.org/img/w/" + data.list[32].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
-            document.getElementById("current-temp4").innerHTML = data.list[32].main.temp + " °F";
-            document.getElementById("current-description4").innerHTML = data.list[32].weather[0].description.toUpperCase()
-            });
+            $("#day-four").html(dayFour.toUpperCase());
+            $("#icon4").html("<img src='https://openweathermap.org/img/w/" + data.list[32].weather[0].icon + ".png' alt='Icon depicting current weather.'>");
+            $("#current-temp4").html(data.list[32].main.temp + " °F");
+            $("#current-description4").html(data.list[32].weather[0].description.toUpperCase());
+        });
 }  
 
 // getting the state's name

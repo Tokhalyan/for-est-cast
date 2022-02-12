@@ -112,11 +112,15 @@ width: 40px;
 height: 40px;
 object-fit: cover;
 background-size: contain;
-background-color:rgba(0, 0, 0, 0.5);
+background-color:white;
 color:white;
 border: none;
 margin:2%;
 cursor: pointer;
+}
+
+.back-btn:hover {
+    background-color: rgba(202, 13, 13, 0.5);
 }
 
 .favorite {
@@ -183,7 +187,7 @@ color: rgb(245, 245, 245);
 
 #main-container p {
     font-size: 15px;
-    font-weight:lighter
+    font-weight: lighter;
 }
 
 #master-container {
@@ -284,6 +288,7 @@ font-size: 30px;
     border-radius: 15px;
     background-color: rgba(202, 13, 13, 0.5);
     width: 20em;
+    padding: 5px;
 }
 
 /* info section end */
@@ -323,7 +328,11 @@ font-size: 30px;
 @media screen and (max-width: 1290px) {
     .right-panel {
         width: 100%;
-        
+        background-color:rgba(0, 0, 0, 1);
+    }
+
+    #master-container {
+        opacity: 100%;
     }
 }
 

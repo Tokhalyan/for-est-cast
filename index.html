@@ -91,19 +91,18 @@
                             <button id="submitButton" class="button is-link has-background-success-dark ">Search</button>
                             
                             
-                            <div class="dropdown">
+                            <div class="dropdown is-active">
                                 <div class="dropdown-trigger">
                                     <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" onclick="showFavorites()" id="fav_btn">
                                         <span>Favorite Parks</span>
-                                        <!-- <span class="icon is-small">
-                                            <i class="fas fa-angle-down" aria-hidden="true"></i>
-                                        </span> -->
                                     </button>
                                 </div>
+
                                 <div class="dropdown-menu" id="dropdown-menu" role="menu">
-                                    <div class="dropdown-content"></div>
+                                    
                                 </div>
                             </div>
+
                         </div>
                     </div>
         </div>
@@ -116,24 +115,26 @@
                 <!-- PARK INFORMATION GOES HERE -->
 
                 <div id="ParkCards"
-                    class=" is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-center columns ">
+                    class=" is-flex is-flex-direction-row is-flex-wrap-wrap is-justify-content-center columns is-mobile">
                     <a href="#">
                         <div class="card parkCard">
+                            
                             <div class="card-image is-justify-content-center">
                                 <figure class="image">
                                     <img class="fav" id="click-image" src="#" alt="">
                                 </figure>
                             </div>
+
                             <div class="card-content">
                                 <div class="media-content">
                                     <p id="park-city" class="title is-4"></p>
                                     <p id="park-name-header subtitle is-6" class="subtitle is-6"></p>
                                 </div>
                             </div>
+
                             <div class="content">
                                 <p id="park-city"></p>
                                 <p id="park-name-header subtitle is-6"></p>
-
                             </div>
                         </div>
                 </div>
