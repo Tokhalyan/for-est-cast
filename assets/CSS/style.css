@@ -159,6 +159,11 @@ background-image: url(../Images/onhover-favorite.png);
     padding:5px;
 }
 
+.dropdown-content {
+    max-height: 13em;
+    overflow-y: auto;
+}
+
 /* WEATHER STYLES*/
 
 .card {
