@@ -131,14 +131,21 @@ function showFavorites() {
     }
     let localFav = localStorage.getItem('favorites');
     const favorites = JSON.parse(localFav);
-    let btn = document.querySelector('.buttons');
-    let list = "<div class='fav_list dropdown-content'>";
+    // let btn = document.querySelector('.buttons');
+    let list = "<div class='fav_list dropdown-item'>";
     favorites.forEach(el => {
-        list += `<div class= "dropdown-item" onclick="parkInfo('${el.id}')">${el.fullName}</div>`;
+        list += `<a onclick="parkInfo('${el.id}')">${el.fullName}</a><br>`;
     });
     list += "</div>";
-    btn.appendChild($(list)[0]);
+    var dropdown = document.querySelector('.dropdown');
+    dropdown.addEventListener('click', function(event) {
+    event.stopPropagation();
+    dropdown.classList.toggle('is-active');
+});
+    favParksEl.appendChild($(list)[0]);
+    // $('#submitButton').click();
     getStateName(true);
+    // btn.appendChild(list)
 }
 
 // saving users chosen favorite parks in the local storage
