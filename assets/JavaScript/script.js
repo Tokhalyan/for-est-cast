@@ -131,7 +131,7 @@ function showFavorites() {
         return 
     }
     let localFav = localStorage.getItem('favorites');
-    const favorites = JSON.parse(localFav);
+    const favorites = JSON.parse(localFav) || [];
     let btn = document.querySelector('#dropdown-menu');
     let list = "<div class='fav_list dropdown-content'>";
     favorites.forEach(el => {
