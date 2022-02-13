@@ -108,19 +108,15 @@ p {
 
 .back-btn {
 background-image: url(../Images/back-button.png);
+background-color: white;
 width: 40px;
 height: 40px;
 object-fit: cover;
 background-size: contain;
-background-color:white;
 color:white;
 border: none;
 margin:2%;
 cursor: pointer;
-}
-
-.back-btn:hover {
-    background-color: rgba(202, 13, 13, 0.5);
 }
 
 .favorite {
@@ -338,6 +334,12 @@ font-size: 30px;
 
     #master-container {
         opacity: 100%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .right-panel {
+        overflow-x: hidden;
     }
 }
 
