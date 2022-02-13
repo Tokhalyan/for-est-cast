@@ -132,7 +132,8 @@ function showFavorites() {
     }
     let localFav = localStorage.getItem('favorites');
     const favorites = JSON.parse(localFav) || [];
-    let btn = document.querySelector('#dropdown-menu');
+    if(favorites.length) {
+        let btn = document.querySelector('#dropdown-menu');
     let list = "<div class='fav_list dropdown-content'>";
     favorites.forEach(el => {
         list += `<a class= "dropdown-item" onclick="parkInfo('${el.id}')">${el.fullName}</a>`;
@@ -140,6 +141,7 @@ function showFavorites() {
     list += "</div>";
     btn.appendChild($(list)[0]);
     getStateName(true);
+    }
 }
 
 // saving users chosen favorite parks in the local storage
