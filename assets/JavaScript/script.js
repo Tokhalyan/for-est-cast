@@ -54,7 +54,7 @@ $('#submitButton').on('click', function() {
 });
 
 // function for getting weather information
-function getCurrentWeather(currentWeather) { 
+async function getCurrentWeather(currentWeather) { 
     fetch(currentWeather)
         .then(function (response) {
             return response.json();
@@ -70,7 +70,7 @@ function getCurrentWeather(currentWeather) {
 }
 
 // Getting the list of the parks in the chosen state 
-function getCurrentPark(currentPark) { 
+async function getCurrentPark(currentPark) { 
     fetch(currentPark)
         .then(function (response) {
             return response.json(); 
@@ -167,7 +167,7 @@ function currentStateHandler() {
 }
     
 // getting weather informaation for 5 days
-function searchWeather(requestUrl) {
+async function searchWeather(requestUrl) {
     fetch(requestUrl)
         .then(function (response) {
             return response.json();
@@ -238,7 +238,7 @@ function getStateName(isFav) {
 }
 
 // Function for getting current covid info by state
-function getCovidInfo(stateForCovid) {
+async function getCovidInfo(stateForCovid) {
     covidApiUrl = `https://api.covidactnow.org/v2/state/${stateForCovid}.json?apiKey=${covidApiKey}`
     fetch(covidApiUrl)
         .then(function (response) {
