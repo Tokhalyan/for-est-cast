@@ -36,4 +36,4 @@ WHEN I push search log button
 ## Contribution
 Made with ❤ by Shahen Tokhalyan, Sarah Wyner, Christian Carandang
 
-<img src="./assets/images/screenshot.png" width="400px"></img> 
+<img src="./assets/Images/screenshot.png" width="400px"></img> 
